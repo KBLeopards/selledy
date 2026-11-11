@@ -9,10 +9,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700&display=swap">
 <style>
-/* Layout: 첫 화면 = 왼쪽 '살아 있는 선언문'(답할 때마다 바뀜) + 오른쪽 대화. 그 아래 이유 4개를 포스터처럼 크게, 파트너, 마무리. 단일 테마(흰 바탕 + 탠저린) */
+/* Layout: 첫 화면 = 왼쪽 '살아 있는 선언문'(답할 때마다 바뀜) + 오른쪽 대화. 그 아래 이름 뜻, 이유 4개, 중달이 서비스, 파트너, 마무리. 단일 테마(흰 바탕 + 차분한 청록) */
 :root{color-scheme:light;
-  --bg:#FFFFFF; --paper:#F4F5F7; --ink:#121417; --mute:#5F6571; --line:#E3E5E9;
-  --tang:#FF5A1F; --tang-deep:#E64610; --tang-soft:#FFEDE5;
+  --bg:#FFFFFF; --paper:#F3F7F8; --ink:#17323C; --mute:#566A72; --line:#DDE6E9; --edge:#C3D5DA;
+  --tang:#D6EBEE; --tang-deep:#1B6F80; --tang-soft:#EEF6F7; --night:#173540;
   --f-display:"Black Han Sans","Noto Sans KR","Apple SD Gothic Neo",sans-serif;
   --f-body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
 }
@@ -24,32 +24,33 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 :focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:10px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 .gut{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--tang)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
 
 /* header */
-header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;display:flex;align-items:center;justify-content:space-between;height:60px;background:var(--tang);border-bottom:2px solid var(--ink)}
-.logo{font-family:var(--f-display);font-size:26px;letter-spacing:-.01em;line-height:1}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;display:flex;align-items:center;justify-content:space-between;height:60px;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.logo{font-family:var(--f-display);font-size:26px;letter-spacing:-.01em;line-height:1;color:var(--tang-deep)}
+.logo span{color:var(--mute)}
 .logo span{font-family:var(--f-body);font-size:12.5px;font-weight:700;margin-left:10px;vertical-align:4px;opacity:.75}
-.hbtn{border:2px solid var(--ink);border-radius:999px;padding:7px 16px;font-weight:700;font-size:14px;background:var(--bg);transition:transform .15s,box-shadow .15s}
-.hbtn:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--ink)}
+.hbtn{border:1.5px solid var(--edge);border-radius:999px;padding:7px 16px;font-weight:700;font-size:14px;background:var(--bg);transition:transform .15s,box-shadow .15s}
+.hbtn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(23,53,64,.10)}
 
 /* stage */
-.stage{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-bottom:2px solid var(--ink)}
-.mani{background:var(--tang);border-right:2px solid var(--ink);position:relative}
+.stage{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-bottom:1.5px solid var(--edge)}
+.mani{background:linear-gradient(160deg,#E4F1F3 0%,#D3E8EC 100%);border-right:1.5px solid var(--edge);position:relative}
 .mani-in{position:sticky;top:60px;padding-block:64px 56px;display:flex;flex-direction:column;gap:22px;min-height:calc(100vh - 60px - 32px);justify-content:center}
 .mani .tag{font-weight:700;font-size:14px;display:flex;gap:8px;align-items:center}
-.mani .tag i{width:10px;height:10px;border-radius:50%;background:var(--ink)}
-.mani h1{font-family:var(--f-display);font-weight:400;font-size:clamp(52px,8.4vw,128px);line-height:.98;letter-spacing:-.02em;text-wrap:balance;transition:opacity .25s,transform .25s}
+.mani .tag i{width:10px;height:10px;border-radius:50%;background:var(--tang-deep)}
+.mani h1{color:var(--night);font-family:var(--f-display);font-weight:400;font-size:clamp(52px,8.4vw,128px);line-height:.98;letter-spacing:-.02em;text-wrap:balance;transition:opacity .25s,transform .25s}
 .mani h1.swap{opacity:0;transform:translateY(14px)}
 .mani p{font-size:clamp(17px,1.6vw,21px);font-weight:500;max-width:30ch;transition:opacity .25s}
 .mani p.swap{opacity:0}
 .meter{display:flex;gap:6px;margin-top:6px}
-.meter b{width:34px;height:8px;border-radius:99px;border:2px solid var(--ink);background:transparent;transition:background .2s}
-.meter b.on{background:var(--ink)}
+.meter b{width:34px;height:8px;border-radius:99px;border:1.5px solid var(--edge);background:transparent;transition:background .2s}
+.meter b.on{background:var(--tang-deep);border-color:var(--tang-deep)}
 
 .chat{background:var(--paper);padding-block:36px 48px;display:flex;flex-direction:column}
 .chat-head{display:flex;align-items:center;gap:12px;padding-bottom:18px;border-bottom:1px solid var(--line)}
-.ava{width:44px;height:44px;border-radius:14px;background:var(--tang);border:2px solid var(--ink);display:grid;place-items:center;font-family:var(--f-display);font-size:20px;flex:none}
+.ava{width:44px;height:44px;border-radius:14px;background:var(--tang-deep);color:#fff;border:1.5px solid var(--edge);display:grid;place-items:center;font-family:var(--f-display);font-size:20px;flex:none}
 .chat-head b{display:block;font-size:16px}
 .chat-head small{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--mute)}
 .chat-head small i{width:8px;height:8px;border-radius:50%;background:#1DB954}
@@ -66,50 +67,122 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;display:f
 .typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
 @keyframes blink{0%,80%,100%{opacity:.3}40%{opacity:1}}
 .chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;margin-top:6px;animation:pop .22s ease-out both}
-.chip{border:2px solid var(--ink);background:#fff;border-radius:999px;padding:10px 16px;font-weight:700;font-size:15px;text-align:left;transition:transform .12s,box-shadow .12s,background .12s}
-.chip:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--ink);background:var(--tang-soft)}
+.chip{border:1.5px solid var(--edge);background:#fff;border-radius:999px;padding:10px 16px;font-weight:700;font-size:15px;text-align:left;transition:transform .12s,box-shadow .12s,background .12s}
+.chip{color:var(--ink)}
+.chip:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(23,53,64,.10);background:var(--tang-soft)}
 .chip.ghost{border-style:dashed;font-weight:500}
 
 /* plan card */
-.plan{align-self:stretch;background:#fff;border:2px solid var(--ink);border-radius:22px;padding:22px;box-shadow:6px 6px 0 var(--ink);animation:pop .3s ease-out both;margin-top:4px}
+.plan{align-self:stretch;background:#fff;border:1.5px solid var(--edge);border-radius:22px;padding:22px;box-shadow:0 12px 30px rgba(23,53,64,.10);animation:pop .3s ease-out both;margin-top:4px}
 .plan h3{font-family:var(--f-display);font-weight:400;font-size:28px;line-height:1.15}
 .plan .tally{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
-.plan .tally span{font-size:13.5px;font-weight:700;border-radius:999px;padding:4px 12px;border:1.5px solid var(--ink)}
+.plan .tally span{font-size:13.5px;font-weight:700;border-radius:999px;padding:4px 12px;border:1.5px solid var(--edge)}
 .plan .tally .us{background:var(--tang);}
 .route{list-style:none;margin-top:18px;display:grid;gap:0}
 .route li{display:grid;grid-template-columns:22px 1fr;gap:14px;position:relative;padding-bottom:16px}
 .route li:last-child{padding-bottom:0}
 .route li::before{content:"";position:absolute;left:10px;top:24px;bottom:0;width:2px;background:var(--line)}
 .route li:last-child::before{display:none}
-.route .dot{width:22px;height:22px;border-radius:50%;border:2px solid var(--ink);background:#fff;margin-top:2px;position:relative;z-index:1}
-.route li.us .dot{background:var(--tang)}
+.route .dot{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--edge);background:#fff;margin-top:2px;position:relative;z-index:1}
+.route li.us .dot{background:var(--tang-deep);border-color:var(--tang-deep)}
 .route .st{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .route .st b{font-size:15.5px}
-.route .who{font-size:12.5px;font-weight:700;border-radius:999px;padding:2px 10px;border:1.5px solid var(--ink)}
+.route .who{font-size:12.5px;font-weight:700;border-radius:999px;padding:2px 10px;border:1.5px solid var(--edge)}
 .route li.us .who{background:var(--tang)}
 .route p{font-size:15px;color:var(--mute);margin-top:2px}
 .plan .foot{margin-top:18px;padding-top:14px;border-top:1px dashed var(--line);font-size:14.5px;font-weight:500}
 .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:2px solid var(--ink);border-radius:999px;padding:13px 22px;font-weight:700;font-size:16px;transition:transform .12s,box-shadow .12s}
-.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
-.btn.main{background:var(--tang);flex:1 1 220px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1.5px solid var(--edge);border-radius:999px;padding:13px 22px;font-weight:700;font-size:16px;transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(23,53,64,.10)}
+.btn.main{background:var(--tang-deep);border-color:var(--tang-deep);color:#fff;flex:1 1 220px}
 .btn.sub{background:#fff}
 
 @media (max-width:900px){
   .stage{grid-template-columns:1fr}
-  .mani{border-right:0;border-bottom:2px solid var(--ink)}
+  .mani{border-right:0;border-bottom:1.5px solid var(--edge)}
   .mani-in{position:static;min-height:0;padding-block:32px 28px;gap:12px}
   .mani h1{font-size:clamp(44px,13vw,72px)}
   .chat{padding-block:24px 36px}
   .msg{max-width:92%}
 }
 
+/* naming: sell + ready */
+.name{padding-block:88px;border-bottom:1.5px solid var(--edge)}
+.eq{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;font-family:var(--f-display);font-size:clamp(44px,8.4vw,116px);line-height:1}
+.eq i{font-style:normal;color:var(--edge)}
+.eq .o{background:var(--tang-deep);color:#fff;border:1.5px solid var(--edge);border-radius:20px;padding:4px 22px 10px;box-shadow:0 12px 30px rgba(23,53,64,.10)}
+.nm-lead{font-size:clamp(18px,1.9vw,23px);margin-top:34px;max-width:46ch;line-height:1.6}
+.nm-lead b{display:block;margin-top:6px;font-weight:700}
+.ready{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:40px}
+.ready li{border:1.5px solid var(--edge);border-radius:18px;padding:18px;position:relative;background:#fff}
+.ready li small{font-size:12.5px;font-weight:700;color:var(--mute);letter-spacing:.06em}
+.ready li b{display:block;font-family:var(--f-display);font-weight:400;font-size:28px;margin-top:4px;line-height:1.1}
+.ready li p{font-size:14.5px;color:var(--mute);margin-top:4px}
+.ready li:not(:last-child)::after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);width:22px;height:22px;border-radius:50%;background:var(--tang-deep);color:#fff;font-size:12px;display:grid;place-items:center;z-index:1}
+.ready li.go{background:var(--tang-deep);color:#fff;box-shadow:0 12px 30px rgba(23,53,64,.10)}
+.ready li.go small,.ready li.go p{color:#D6EBEE}
+@media (max-width:860px){.ready{grid-template-columns:repeat(2,minmax(0,1fr))}.ready li.go{grid-column:1/-1}.ready li:not(:last-child)::after{display:none}.name{padding-block:60px}}
+
+/* direct payment guide */
+.guide{padding-block:96px}
+.guide .lab{font-weight:700;font-size:15px;color:var(--mute)}
+.guide h2{font-family:var(--f-display);font-weight:400;font-size:clamp(30px,4.4vw,54px);line-height:1.1;margin-top:8px;text-wrap:balance;color:var(--night)}
+.guide .lead{font-size:17.5px;color:var(--mute);margin-top:14px;max-width:56ch}
+.guide .lead b{color:var(--ink)}
+.gsteps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:36px}
+.gs{display:flex;flex-direction:column;gap:6px;border:1.5px solid var(--edge);border-radius:18px;padding:20px;background:#fff;transition:transform .12s,box-shadow .12s,border-color .12s}
+.gs:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(23,53,64,.10);border-color:var(--tang-deep)}
+.gs small{font-size:12.5px;font-weight:700;color:var(--tang-deep);letter-spacing:.06em}
+.gs b{font-size:19px}
+.gs p{font-size:15px;color:var(--mute)}
+.gs span{margin-top:auto;padding-top:6px;font-size:14px;font-weight:700;color:var(--tang-deep)}
+.gs:last-child{background:var(--tang)}
+.stuck{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin-top:18px;font-size:15px}
+.stuck span{font-weight:700;color:var(--mute)}
+.stuck a{color:var(--tang-deep);font-weight:700;border-bottom:1.5px solid var(--tang)}
+@media (max-width:860px){.gsteps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.gsteps{grid-template-columns:1fr}.guide{padding-block:64px}}
+.prep{list-style:none;margin-top:10px;display:grid;gap:6px}
+.route .prep li{display:block;padding:0}
+.route .prep li::before{display:none}
+.prep a{display:flex;gap:10px;align-items:baseline;font-size:14.5px;font-weight:500;color:var(--ink);padding:6px 10px;border-radius:10px;background:var(--tang-soft)}
+.prep a:hover{background:var(--tang)}
+.prep small{font-size:11.5px;font-weight:700;color:var(--tang-deep);min-width:64px}
+
+/* jungdari services */
+.jd{padding-block:96px;background:var(--paper);border-top:1.5px solid var(--edge)}
+.jd .lab{font-weight:700;font-size:15px;color:var(--mute)}
+.jd h2{font-family:var(--f-display);font-weight:400;font-size:clamp(32px,4.6vw,58px);line-height:1.08;margin-top:8px;text-wrap:balance}
+.jd .lead{font-size:17.5px;color:var(--mute);margin-top:14px;max-width:52ch}
+.svcs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:40px}
+.sv{background:#fff;border:1.5px solid var(--edge);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:8px}
+.sv small{align-self:flex-start;font-size:12.5px;font-weight:700;border-radius:999px;padding:3px 10px;background:var(--tang);color:var(--tang-deep)}
+.sv h3{font-family:var(--f-display);font-weight:400;font-size:28px;line-height:1.1}
+.sv p{font-size:15.5px;color:var(--mute)}
+.sv .fit{font-size:14.5px;border-top:1px dashed var(--line);padding-top:10px;margin-top:auto}
+.sv .fit b{display:block;font-size:13px;color:var(--ink)}
+.sv a{font-weight:700;font-size:14.5px;align-self:flex-start;color:var(--tang-deep);border-bottom:1.5px solid var(--tang-deep)}
+.sv a:hover{color:var(--tang-deep);border-color:var(--tang-deep)}
+@media (max-width:960px){.svcs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.svcs{grid-template-columns:1fr}.jd{padding-block:64px}}
+
+/* plan: connected services */
+.route .svc{display:inline-block;margin-top:6px;font-size:12.5px;font-weight:700;color:var(--tang-deep)}
+.route li.ready-node .dot{background:var(--tang-deep);border-color:var(--tang-deep)}
+.route li.ready-node b{font-family:var(--f-display);font-weight:400;font-size:20px}
+.links{margin-top:16px;display:grid;gap:8px}
+.links h4{font-size:14px;font-weight:700}
+.links a{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1.5px solid var(--line);border-radius:12px;padding:10px 14px;font-size:15px;font-weight:500;transition:border-color .12s,background .12s}
+.links a:hover{border-color:var(--ink);background:var(--tang-soft)}
+.links a{flex-wrap:wrap}
+.links a span{font-size:13px;color:var(--mute)}
+
 /* reasons */
 .why{padding-block:96px}
 .why .lab{font-weight:700;font-size:15px;color:var(--mute)}
 .why h2{font-family:var(--f-display);font-weight:400;font-size:clamp(34px,5vw,64px);line-height:1.08;margin-top:8px;text-wrap:balance}
-.rs{margin-top:48px;display:grid;gap:0;border-top:2px solid var(--ink)}
-.r{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px;padding-block:34px;border-bottom:2px solid var(--ink);align-items:end}
+.rs{margin-top:48px;display:grid;gap:0;border-top:1.5px solid var(--edge)}
+.r{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px;padding-block:34px;border-bottom:1.5px solid var(--edge);align-items:end}
 .r h3{font-family:var(--f-display);font-weight:400;font-size:clamp(32px,4.6vw,60px);line-height:1.05;letter-spacing:-.01em;text-wrap:balance}
 .r h3 em{font-style:normal;color:var(--tang-deep)}
 .r p{font-size:17.5px;color:var(--mute);max-width:44ch}
@@ -117,7 +190,7 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;display:f
 @media (max-width:760px){.r{grid-template-columns:1fr;gap:10px;padding-block:26px}.why{padding-block:64px}}
 
 /* handoff band */
-.band{background:var(--ink);color:#fff;padding-block:84px}
+.band{background:var(--night);color:#fff;padding-block:84px}
 .band h2{font-family:var(--f-display);font-weight:400;font-size:clamp(30px,4.4vw,54px);line-height:1.1;text-wrap:balance}
 .band .lead{color:#B8BDC7;font-size:17px;margin-top:12px;max-width:52ch}
 .slider{margin-top:40px;max-width:900px}
@@ -128,7 +201,7 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;display:f
 .lane small{display:block;font-size:12.5px;font-weight:700;color:#8C929D}
 .lane b{display:block;font-size:17px;margin-top:4px}
 .lane span{display:inline-block;margin-top:10px;font-size:13px;font-weight:700;border-radius:999px;padding:3px 10px;border:1.5px solid #5A606B}
-.lane.us{background:var(--tang);border-color:var(--tang);color:var(--ink)}
+.lane.us{background:var(--tang);border-color:var(--tang);color:var(--night)}
 .lane.us small{color:var(--ink);opacity:.7}
 .lane.us span{border-color:var(--ink)}
 .band .cap{margin-top:18px;font-size:17px;font-weight:500;min-height:1.6em}
@@ -137,8 +210,8 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;display:f
 /* partners */
 .pt{padding-block:84px}
 .pt h2{font-family:var(--f-display);font-weight:400;font-size:clamp(28px,3.8vw,46px);line-height:1.12}
-.pgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:36px;border:2px solid var(--ink);border-radius:22px;overflow:hidden}
-.pc{padding:26px;border-right:2px solid var(--ink)}
+.pgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:36px;border:1.5px solid var(--edge);border-radius:22px;overflow:hidden}
+.pc{padding:26px;border-right:1.5px solid var(--edge)}
 .pc:last-child{border-right:0}
 .pc.me{background:var(--tang)}
 .pc small{font-size:13px;font-weight:700;color:var(--mute)}
@@ -146,15 +219,15 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;display:f
 .pc b{display:block;font-family:var(--f-display);font-weight:400;font-size:30px;margin-top:6px;line-height:1.1}
 .pc p{font-size:15.5px;margin-top:8px;color:var(--mute)}
 .pc.me p{color:var(--ink)}
-@media (max-width:760px){.pgrid{grid-template-columns:1fr}.pc{border-right:0;border-bottom:2px solid var(--ink)}.pc:last-child{border-bottom:0}.pt{padding-block:64px}}
+@media (max-width:760px){.pgrid{grid-template-columns:1fr}.pc{border-right:0;border-bottom:1.5px solid var(--edge)}.pc:last-child{border-bottom:0}.pt{padding-block:64px}}
 
 /* closing */
-.closing{background:var(--tang);border-top:2px solid var(--ink);padding-block:80px;text-align:center}
+.closing{background:var(--tang);border-top:1.5px solid var(--edge);padding-block:80px;text-align:center}
 .closing h2{font-family:var(--f-display);font-weight:400;font-size:clamp(48px,9vw,120px);line-height:.98}
 .closing p{font-size:18px;font-weight:500;margin-top:16px}
-.closing .btn{margin-top:26px;background:var(--ink);color:#fff}
-.closing .btn:hover{box-shadow:4px 4px 0 #fff}
-footer{background:var(--ink);color:#9AA0AA;font-size:13.5px;padding-block:26px;display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-between}
+.closing .btn{margin-top:26px;background:var(--tang-deep);border-color:var(--tang-deep);color:#fff}
+.closing .btn:hover{box-shadow:0 10px 24px rgba(0,0,0,.18)}
+footer{background:var(--night);color:#9AA0AA;font-size:13.5px;padding-block:26px;display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-between}
 footer b{color:#fff}
 
 .wrap{max-width:1160px;margin:0 auto}
@@ -165,7 +238,7 @@ footer b{color:#fff}
 </head>
 <body>
 <header class="top gut">
-  <a class="logo" href="#top">셀레디<span>Sell + Ready</span></a>
+  <a class="logo" href="#top">셀레디<span>SELLEDY</span></a>
   <a class="hbtn" href="#why">왜 셀레디?</a>
 </header>
 
@@ -173,7 +246,7 @@ footer b{color:#fff}
 <section class="stage">
   <div class="mani">
     <div class="mani-in gut">
-      <div class="tag"><i></i>1688 중국 구매, 어디서부터 할지 모를 때</div>
+      <div class="tag"><i></i>중국 소싱부터 판매 준비까지</div>
       <h1 id="mh">몰라도<br>괜찮아요.</h1>
       <p id="mp">직접 할지, 맡길지. 셀레디가 대화 몇 번으로 같이 정해 드려요.</p>
       <div class="meter" id="meter" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b></div>
@@ -189,14 +262,28 @@ footer b{color:#fff}
   </div>
 </section>
 
+<section class="name gut" id="name">
+  <div class="wrap">
+    <div class="eq" aria-label="Sell 더하기 Ready는 셀레디"><span>SELL</span><i>+</i><span>READY</span><i>=</i><span class="o">셀레디</span></div>
+    <p class="nm-lead">셀러가 가장 머리 아파하는 중국 소싱, 결제, 통관, 배송까지의 복잡한 준비 과정을<b>이 플랫폼 하나로. 판매 준비(Sell-Ready) 끝!</b></p>
+    <ol class="ready">
+      <li><small>01</small><b>소싱</b><p>어디서, 얼마에, 몇 개부터 살지</p></li>
+      <li><small>02</small><b>결제</b><p>원화로 막힘 없이</p></li>
+      <li><small>03</small><b>통관</b><p>서류와 절차까지</p></li>
+      <li><small>04</small><b>배송</b><p>검수하고 국내까지</p></li>
+      <li class="go"><small>READY</small><b>판매 준비 끝</b><p>이제 팔기만 하면 돼요</p></li>
+    </ol>
+  </div>
+</section>
+
 <section class="why gut" id="why">
   <div class="wrap">
     <div class="lab">왜 셀레디와 함께해야 할까요</div>
     <h2>중국 구매가 어려운 건<br>방법이 하나뿐이라서예요.</h2>
     <div class="rs">
       <div class="r"><h3>정답을<br><em>강요하지 않아요.</em></h3><p>"직접 해야 이득", "맡겨야 편해" 같은 말 대신, <b>지금 내 상황</b>에서 출발해요. 경험, 사업자, 규모, 소통 가능 여부에 맞춰 시작점을 같이 정해요.</p></div>
-      <div class="r"><h3>막혀도<br><em>끊기지 않아요.</em></h3><p>직접 하다 막히면 <b>그 단계부터 셀레디 매니저가 이어받아요.</b> 익숙해지면 다시 직접 하면 돼요. 도중에 다른 업체를 찾아 처음부터 다시 설명할 일이 없어요.</p></div>
-      <div class="r"><h3>결제부터 배송까지<br><em>한 곳에서.</em></h3><p>결제는 <b>월드퍼스트</b>, 구매·검수·배송은 <b>중달이닷컴</b>. 따로 알아보고 따로 가입할 필요 없이 셀레디 하나로 이어져요.</p></div>
+      <div class="r"><h3>막혀도<br><em>끊기지 않아요.</em></h3><p>직접 하다 막히면 <b>그 단계부터 중달이닷컴 매니저가 이어받아요.</b> 익숙해지면 다시 직접 하면 돼요. 도중에 다른 업체를 찾아 처음부터 다시 설명할 일이 없어요.</p></div>
+      <div class="r"><h3>소싱부터 배송까지<br><em>한 곳에서.</em></h3><p>직접 결제는 <b>월드퍼스트</b>, 소싱·구매·검수·통관·배송은 <b>중달이닷컴</b>. 따로 알아보고 따로 가입할 필요 없이 셀레디 하나로 이어져요.</p></div>
       <div class="r"><h3>첫 질문부터<br><em>사람이 답해요.</em></h3><p>위에서 나눈 대화와 시작 플랜이 <b>그대로 상담으로 넘어가요.</b> 같은 얘기를 두 번 할 필요가 없어요.</p></div>
     </div>
   </div>
@@ -204,14 +291,40 @@ footer b{color:#fff}
 
 <section class="band gut" id="handoff">
   <div class="wrap">
-    <h2>내가 하는 만큼,<br>셀레디가 나머지를.</h2>
-    <p class="lead">어디까지 직접 할지는 정하기 나름이에요. 막대를 움직여 보세요. 어느 지점이든 셀레디 안에서 이어져요.</p>
+    <h2>내가 하는 만큼,<br>나머지는 중달이닷컴이.</h2>
+    <p class="lead">어디까지 직접 할지는 정하기 나름이에요. 막대를 움직여 보세요. 어느 지점이든 셀레디가 짠 플랜 안에서 이어져요.</p>
     <div class="slider">
-      <input type="range" id="rng" min="0" max="4" step="1" value="1" aria-label="셀레디에 맡기는 정도">
-      <div class="ends"><span>내가 거의 다</span><span>셀레디가 거의 다</span></div>
+      <input type="range" id="rng" min="0" max="4" step="1" value="1" aria-label="중달이닷컴에 맡기는 정도">
+      <div class="ends"><span>내가 거의 다</span><span>중달이닷컴이 거의 다</span></div>
     </div>
     <div class="lanes" id="lanes"></div>
     <p class="cap" id="cap"></p>
+  </div>
+</section>
+
+<section class="guide gut" id="guide">
+  <div class="wrap">
+    <div class="lab">직접 결제 준비</div>
+    <h2>1688·알리페이·월드퍼스트,<br>가입부터 첫 결제까지.</h2>
+    <p class="lead">직접 결제를 고른 분은 이 순서대로 따라오면 돼요. 결제는 <b>월드퍼스트</b>로 원화 충전해서 하고, 배송이 필요하면 <b>중달이닷컴 배송대행</b>으로 이어져요.</p>
+    <div class="gsteps"><a class="gs" href="https://docs.channel.io/sinkyu/ko/articles/STEP-1-1688-%EA%B3%84%EC%A0%95-%EB%A7%8C%EB%93%A4%EA%B8%B0-cf0f5d7f" target="_blank" rel="noopener"><small>STEP 1</small><b>1688 계정 만들기</b><p>중국 도매 사이트 1688 회원가입</p><span>가이드 보기 ↗</span></a><a class="gs" href="https://docs.channel.io/sinkyu/ko/articles/STEP-2-%EC%95%8C%EB%A6%AC%ED%8E%98%EC%9D%B4-%EA%B0%80%EC%9E%85--%EC%9D%B8%EC%A6%9D-09fa790f" target="_blank" rel="noopener"><small>STEP 2</small><b>알리페이 가입·인증</b><p>1688 결제에 쓰는 알리페이 계정과 실명 인증</p><span>가이드 보기 ↗</span></a><a class="gs" href="https://docs.channel.io/sinkyu/ko/articles/STEP-3-%EC%9B%94%EB%93%9C%ED%8D%BC%EC%8A%A4%ED%8A%B8-%EA%B0%80%EC%9E%85-59b548bc" target="_blank" rel="noopener"><small>STEP 3</small><b>월드퍼스트 가입</b><p>원화로 결제하기 위한 월드퍼스트 계정</p><span>가이드 보기 ↗</span></a><a class="gs" href="https://docs.channel.io/sinkyu/ko/articles/STEP-4-1688--%EC%95%8C%EB%A6%AC%ED%8E%98%EC%9D%B4-%EC%97%B0%EB%8F%99-371dfecd" target="_blank" rel="noopener"><small>STEP 4</small><b>1688·알리페이 연동</b><p>1688 계정에 알리페이 연결</p><span>가이드 보기 ↗</span></a><a class="gs" href="https://docs.channel.io/sinkyu/ko/articles/STEP-5-1688--%EC%9B%94%EB%93%9C%ED%8D%BC%EC%8A%A4%ED%8A%B8-%EC%97%B0%EB%8F%99-2e45866f" target="_blank" rel="noopener"><small>STEP 5</small><b>1688·월드퍼스트 연동</b><p>1688 결제 수단으로 월드퍼스트 연결</p><span>가이드 보기 ↗</span></a><a class="gs" href="https://docs.channel.io/sinkyu/ko/articles/STEP--%EC%9B%90%ED%99%94-%EC%B6%A9%EC%A0%84--%EC%B2%AB-%EA%B2%B0%EC%A0%9C-6136bb5b" target="_blank" rel="noopener"><small>FIRST PAY</small><b>원화 충전·첫 결제</b><p>원화로 충전하고 1688에서 첫 결제</p><span>가이드 보기 ↗</span></a></div>
+    <div class="stuck"><span>막혔다면</span><a href="https://docs.channel.io/sinkyu/ko/articles/%EA%B0%80%EC%9E%85-%EB%8B%A8%EA%B3%84%EC%97%90%EC%84%9C-%EB%A7%89%ED%98%94%EC%9D%84-%EB%95%8C-d8134039" target="_blank" rel="noopener">가입 단계에서 막혔을 때 ↗</a><a href="https://docs.channel.io/sinkyu/ko/articles/%EC%97%B0%EB%8F%99-%EB%8B%A8%EA%B3%84%EC%97%90%EC%84%9C-%EB%A7%89%ED%98%94%EC%9D%84-%EB%95%8C-ec9480dd" target="_blank" rel="noopener">연동 단계에서 막혔을 때 ↗</a><a href="https://docs.channel.io/sinkyu/ko/articles/%EA%B2%B0%EC%A0%9C-%EB%8B%A8%EA%B3%84%EC%97%90%EC%84%9C-%EB%A7%89%ED%98%94%EC%9D%84-%EB%95%8C-6cb3a203" target="_blank" rel="noopener">결제 단계에서 막혔을 때 ↗</a></div>
+  </div>
+</section>
+
+<section class="jd gut" id="jungdari">
+  <div class="wrap">
+    <div class="lab">셀레디가 연결하는 중달이닷컴 서비스</div>
+    <h2>맡기는 순간부터는<br>중달이닷컴이 해요.</h2>
+    <p class="lead">셀레디는 길을 짜고, 실제 소싱·구매·검수·통관·배송은 중달이닷컴이 해요. 필요한 구간만 골라 맡기면 돼요.</p>
+    <div class="svcs">
+      <article class="sv"><small>소싱</small><h3>단가조사</h3><p>팔고 싶은 상품의 시세, 최소 주문 수량, 제작 기간을 조사해요. 조사가 끝나면 그대로 구매대행으로 이어갈 수 있어요.</p><div class="fit"><b>이럴 때</b>상품은 정했는데 어디서 얼마에 사야 할지 모를 때</div><a href="https://www.jungdari.com" target="_blank" rel="noopener">중달이닷컴에서 보기 ↗</a></article>
+      <article class="sv"><small>전 과정</small><h3>구매대행 PRO</h3><p>전담 매니저가 업체 협의, 발주, 결제, 검수, 통관, 국내 배차까지 맡아요.</p><div class="fit"><b>이럴 때</b>처음부터 끝까지 믿고 맡기고 싶을 때</div><a href="https://www.jungdari.com" target="_blank" rel="noopener">중달이닷컴에서 보기 ↗</a></article>
+      <article class="sv"><small>결제 ~ 통관</small><h3>구매대행 LITE</h3><p>상품 링크가 있고 업체와 직접 소통할 수 있다면, 결제·입고·물류·통관만 지원받아요.</p><div class="fit"><b>이럴 때</b>소통은 직접 하고, 결제부터는 맡기고 싶을 때</div><a href="https://www.jungdari.com" target="_blank" rel="noopener">중달이닷컴에서 보기 ↗</a></article>
+      <article class="sv"><small>입고 ~ 배송</small><h3>배송대행</h3><p>1688 구매와 결제는 직접 하고, 중국 창고 입고부터 검수·통관·국내 배송까지 맡겨요.</p><div class="fit"><b>이럴 때</b>월드퍼스트로 직접 결제한 다음</div><a href="https://www.jungdari.com" target="_blank" rel="noopener">중달이닷컴에서 보기 ↗</a></article>
+      <article class="sv"><small>결제</small><h3>결제대행</h3><p>상품과 거래처는 정했는데 결제에서 막혔다면, 결제만 해결해요.</p><div class="fit"><b>이럴 때</b>다른 건 다 됐고 결제만 막혔을 때</div><a href="https://www.jungdari.com" target="_blank" rel="noopener">중달이닷컴에서 보기 ↗</a></article>
+      <article class="sv"><small>현지 조사</small><h3>시장조사단</h3><p>중국 현지 도매시장을 직접 둘러보며 상품과 공급처를 찾는 조사단이에요.</p><div class="fit"><b>이럴 때</b>화면 말고 현장에서 직접 보고 고르고 싶을 때</div><a href="https://www.jungdari.com" target="_blank" rel="noopener">중달이닷컴에서 보기 ↗</a></article>
+    </div>
   </div>
 </section>
 
@@ -219,9 +332,9 @@ footer b{color:#fff}
   <div class="wrap">
     <h2>셀레디 뒤에는<br>이미 검증된 파트너가 있어요.</h2>
     <div class="pgrid">
-      <div class="pc me"><small>진단·연결</small><b>셀레디</b><p>내 상황을 듣고, 맞는 방법과 서비스로 이어 줘요. 진행 중에 방법을 바꿔도 여기서 다 이어져요.</p></div>
+      <div class="pc me"><small>진단·연결</small><b>셀레디</b><p>내 상황을 듣고 판매 준비 플랜을 짜요. 실제 결제와 수입 업무는 파트너가 맡고, 셀레디는 그 사이를 이어 줘요.</p></div>
       <div class="pc"><small>직접 결제 파트너</small><b>월드퍼스트</b><p>원화로 충전해 1688에서 직접 결제할 수 있게 해 주는 해외 결제 파트너예요.</p></div>
-      <div class="pc"><small>수입 지원 파트너</small><b>중달이닷컴</b><p>단가조사, 구매대행, 현지 검수, 배송대행까지 중국 수입 전 과정을 맡아요.</p></div>
+      <div class="pc"><small>수입 지원 파트너</small><b>중달이닷컴</b><p>단가조사, 구매대행, 현지 검수, 통관, 배송대행까지 중국 수입 전 과정을 맡아요.</p></div>
     </div>
   </div>
 </section>
@@ -245,12 +358,12 @@ footer b{color:#fff}
   var Q=[
     {k:"exp",q:"지금 어떤 상황이세요?",o:[
       {v:"often",t:"1688에서 고르는 건 익숙해요",a:"고르는 건 이미 자신 있으시네요. 그럼 나머지만 정하면 돼요."},
-      {v:"some",t:"구경은 해봤는데 주문은 막막해요",a:"구경까지 하셨으면 반은 오신 거예요. 주문부터는 같이 해요."},
+      {v:"some",t:"구경은 해봤는데 주문은 막막해요",a:"구경까지 하셨으면 반은 오신 거예요. 주문부터는 같이 정해 봐요."},
       {v:"none",t:"중국 구매 자체가 처음이에요",a:"괜찮아요. 처음인 분이 제일 많아요. 상품 찾는 것부터 같이 할 수 있어요."}]},
     {k:"biz",q:"사업자등록은 되어 있으세요?",o:[
       {v:"yes",t:"네, 있어요",a:"좋아요. 그럼 월드퍼스트로 1688에서 직접 결제하는 길도 열려 있어요."},
-      {v:"soon",t:"준비 중이에요",a:"등록 전까지는 셀레디가 구매를 대신하고, 등록되면 직접 결제로 바꾸면 돼요."},
-      {v:"no",t:"아직 없어요",a:"사업자 없이도 시작할 수 있어요. 구매는 셀레디 매니저가 진행해요."}]},
+      {v:"soon",t:"준비 중이에요",a:"좋아요. 등록되면 월드퍼스트 직접 결제도 열려요. 그 전까지 어떻게 할지 같이 짜 볼게요."},
+      {v:"no",t:"아직 없어요",a:"괜찮아요. 등록 준비부터 상담에서 같이 잡을 수 있어요."}]},
     {k:"vol",q:"한 달에 어느 정도 살 생각이세요?",o:[
       {v:"s",t:"100만 원 미만",a:"그럼 샘플 주문부터 가볍게 해 봐요."},
       {v:"m",t:"100만~500만 원",a:"꾸준히 사시는 규모네요. 반복 주문이 편해지게 맞춰 볼게요."},
@@ -258,25 +371,34 @@ footer b{color:#fff}
       {v:"x",t:"아직 모르겠어요",a:"몰라도 돼요. 샘플 몇 개로 시작해서 정해도 늦지 않아요."}]},
     {k:"talk",q:"판매자랑 옵션·수량·납기 확인은 어떠세요?",o:[
       {v:"ok",t:"직접 할 수 있어요",a:"직접 하실 수 있으면 그게 제일 빨라요."},
-      {v:"tr",t:"번역기로 어느 정도는 돼요",a:"그 정도면 충분해요. 막히는 부분만 셀레디가 도와드릴게요."},
-      {v:"hard",t:"그건 좀 어려워요",a:"그건 셀레디 매니저가 대신 물어볼게요. 중국어 몰라도 돼요."}]},
+      {v:"tr",t:"번역기로 어느 정도는 돼요",a:"그 정도면 충분해요. 막히는 부분만 중달이닷컴 매니저에게 맡기면 돼요."},
+      {v:"hard",t:"그건 좀 어려워요",a:"그건 중달이닷컴 매니저가 대신 물어봐요. 중국어 몰라도 돼요."}]},
     {k:"want",q:"마지막이에요! 제일 바라는 건 뭐예요?",o:[
       {v:"self",t:"원할 때 바로 주문하고 싶어요",a:"내 속도대로 바로 주문하는 쪽으로 짤게요."},
-      {v:"half",t:"검수·배송은 덜고 싶어요",a:"번거로운 검수·배송은 셀레디가 챙기는 쪽으로 짤게요."},
-      {v:"all",t:"처음부터 끝까지 맡기고 싶어요",a:"처음부터 끝까지 셀레디가 함께하는 쪽으로 짤게요."}]}
+      {v:"half",t:"검수·배송은 덜고 싶어요",a:"번거로운 검수·배송은 중달이닷컴이 챙기는 쪽으로 짤게요."},
+      {v:"all",t:"처음부터 끝까지 맡기고 싶어요",a:"중달이닷컴 매니저가 처음부터 끝까지 함께하는 쪽으로 짤게요."}]}
   ];
   var M={
     start:["몰라도<br>괜찮아요.","직접 할지, 맡길지. 셀레디가 대화 몇 번으로 같이 정해 드려요."],
     exp_often:["잘하는 건<br>그대로.","익숙한 건 직접 하고, 번거로운 것만 덜면 돼요."],
-    exp_some:["반은<br>오셨어요.","막막한 주문부터는 셀레디가 옆에서 같이 해요."],
+    exp_some:["반은<br>오셨어요.","막막한 주문부터는 맞는 방법을 같이 찾아요."],
     exp_none:["처음이어도<br>괜찮아요.","상품 찾기부터 같이 해요. 처음 오는 분이 제일 많아요."],
     biz_yes:["직접 결제도,<br>맡기기도.","사업자가 있으면 고를 수 있는 길이 하나 더 열려요."],
-    biz_no:["사업자 없어도<br>시작해요.","준비되는 동안엔 셀레디가 구매를 맡아요."],
+    biz_no:["사업자 전이어도<br>괜찮아요.","등록 준비부터 판매 준비까지 같이 잡아요."],
     vol_small:["작게 시작해도<br>돼요.","샘플 몇 개로 감을 잡고, 그다음에 늘려요."],
     vol_big:["많을수록<br>한눈에.","주문이 늘어도 어디까지 왔는지 바로 보이게 해요."],
-    talk_hard:["말이 안 통해도<br>괜찮아요.","판매자와의 대화는 셀레디 매니저가 대신해요."],
+    talk_hard:["말이 안 통해도<br>괜찮아요.","판매자와의 대화는 중달이닷컴 매니저가 대신해요."],
     talk_ok:["막히는 곳만<br>도와요.","할 수 있는 건 직접, 막히면 그 자리에서 이어받아요."],
-    done:["결제부터 배송까지,<br>셀레디 하나로.","내 상황에 맞춘 시작 플랜이 나왔어요. 그대로 상담으로 이어져요."]
+    done:["판매 준비,<br>셀레디 하나로 끝.","월드퍼스트와 중달이닷컴까지, 내 상황에 맞춘 플랜이 나왔어요."]
+  };
+  var GUIDE_URL="https://docs.channel.io/sinkyu/ko", JD_URL="https://www.jungdari.com";
+  var PREP='<ol class="prep"><li><a href="https://docs.channel.io/sinkyu/ko/articles/STEP-1-1688-%EA%B3%84%EC%A0%95-%EB%A7%8C%EB%93%A4%EA%B8%B0-cf0f5d7f" target="_blank" rel="noopener"><small>STEP 1</small>1688 계정 만들기 ↗</a></li><li><a href="https://docs.channel.io/sinkyu/ko/articles/STEP-2-%EC%95%8C%EB%A6%AC%ED%8E%98%EC%9D%B4-%EA%B0%80%EC%9E%85--%EC%9D%B8%EC%A6%9D-09fa790f" target="_blank" rel="noopener"><small>STEP 2</small>알리페이 가입·인증 ↗</a></li><li><a href="https://docs.channel.io/sinkyu/ko/articles/STEP-3-%EC%9B%94%EB%93%9C%ED%8D%BC%EC%8A%A4%ED%8A%B8-%EA%B0%80%EC%9E%85-59b548bc" target="_blank" rel="noopener"><small>STEP 3</small>월드퍼스트 가입 ↗</a></li><li><a href="https://docs.channel.io/sinkyu/ko/articles/STEP-4-1688--%EC%95%8C%EB%A6%AC%ED%8E%98%EC%9D%B4-%EC%97%B0%EB%8F%99-371dfecd" target="_blank" rel="noopener"><small>STEP 4</small>1688·알리페이 연동 ↗</a></li><li><a href="https://docs.channel.io/sinkyu/ko/articles/STEP-5-1688--%EC%9B%94%EB%93%9C%ED%8D%BC%EC%8A%A4%ED%8A%B8-%EC%97%B0%EB%8F%99-2e45866f" target="_blank" rel="noopener"><small>STEP 5</small>1688·월드퍼스트 연동 ↗</a></li><li><a href="https://docs.channel.io/sinkyu/ko/articles/STEP--%EC%9B%90%ED%99%94-%EC%B6%A9%EC%A0%84--%EC%B2%AB-%EA%B2%B0%EC%A0%9C-6136bb5b" target="_blank" rel="noopener"><small>FIRST PAY</small>원화 충전·첫 결제 ↗</a></li></ol>';
+  var SV={
+    research:{n:"중달이닷컴 단가조사",d:"시세·최소 주문 수량·제작 기간 조사",u:JD_URL},
+    pro:{n:"중달이닷컴 구매대행 PRO",d:"업체 협의부터 국내 배차까지 전담",u:JD_URL},
+    lite:{n:"중달이닷컴 구매대행 LITE",d:"결제·입고·물류·통관 지원",u:JD_URL},
+    ship:{n:"중달이닷컴 배송대행",d:"입고·검수·통관·국내 배송",u:JD_URL},
+    wf:{n:"1688 직접 결제 가이드",d:"1688·알리페이·월드퍼스트 가입부터 첫 결제까지",u:GUIDE_URL}
   };
   var log=document.getElementById("log"),mh=document.getElementById("mh"),mp=document.getElementById("mp"),meter=document.getElementById("meter").children;
   var ans={},step=0,busy=false,timers=[];
@@ -323,28 +445,38 @@ footer b{color:#fff}
     });
   }
   function plan(){
-    var a=ans, rows=[];
+    var a=ans, rows=[], used=[];
+    function use(k){ if(used.indexOf(k)<0) used.push(k); return SV[k].n; }
     var findUs = a.exp==="none"||a.want==="all";
-    rows.push({t:"상품 찾기",us:findUs,d:findUs?"원하는 상품을 말씀하시면 셀레디가 단가와 공급처를 찾아 드려요.":"1688에서 직접 골라요. 링크만 있으면 다음 단계로 바로 넘어가요."});
-    var talkUs = a.talk==="hard"||a.want==="all";
-    rows.push({t:"판매자 소통",us:talkUs,d:talkUs?"옵션·수량·납기 확인은 셀레디 매니저가 대신해요.":(a.talk==="tr"?"번역기로 직접 확인하고, 막히는 질문만 셀레디가 이어받아요.":"직접 확인해요. 가장 빠른 방법이에요.")});
-    var payUs = a.biz!=="yes"||a.want==="all";
-    rows.push({t:"결제·구매",us:payUs,d:payUs?(a.biz==="soon"?"지금은 셀레디가 구매를 진행하고, 사업자 등록 후엔 월드퍼스트 직접 결제로 바꿀 수 있어요.":"견적을 확인하면 셀레디가 구매까지 진행해요."):"월드퍼스트에 원화로 충전해서 1688에서 바로 결제해요."});
-    var shipMe = a.want==="self"&&a.exp==="often";
-    rows.push({t:"검수·배송",us:!shipMe,d:shipMe?"필요할 때만 셀레디 배송대행을 붙여요.":"현지 창고에서 검수·포장하고 국내까지 보내요. 진행 상황은 단계마다 알려 드려요."});
-    var first = (a.vol==="s"||a.vol==="x")?"샘플 주문으로 가볍게 시작해요.":"첫 주문부터 바로 시작해요.";
+    var talkUs = findUs||a.talk==="hard"||a.want==="all";
+    var payUs = talkUs||a.biz!=="yes";
+    var shipMe = !payUs&&a.want==="self"&&a.exp==="often";
+    var buy = talkUs?"pro":"lite";
+    if(findUs) rows.push({t:"소싱",us:1,d:"원하는 상품을 말씀하시면 시세·최소 주문 수량·제작 기간을 조사해 드려요.",s:use("research")});
+    else rows.push({t:"소싱",us:0,d:"1688에서 직접 골라요. 상품 링크만 있으면 다음 단계로 넘어가요."});
+    if(talkUs) rows.push({t:"판매자 소통",us:1,d:"옵션·수량·납기 협의는 전담 매니저가 대신해요.",s:use("pro")});
+    else rows.push({t:"판매자 소통",us:0,d:a.talk==="tr"?"번역기로 직접 확인하고, 막히는 질문만 상담으로 물어보세요.":"직접 확인해요. 가장 빠른 방법이에요."});
+    if(payUs) rows.push({t:"결제·구매",us:1,d:(buy==="pro"?"견적을 확인하면 매니저가 발주와 결제까지 진행해요.":"상품 링크와 협의 내용을 넘기면 결제와 입고를 대신 진행해요.")+(a.biz==="soon"?" 사업자 등록 후엔 월드퍼스트 직접 결제로 바꿀 수도 있어요.":""),s:use(buy)});
+    else rows.push({t:"결제·구매",us:0,prep:1,d:"1688·알리페이·월드퍼스트에 가입하고 연동한 뒤, 원화로 충전해서 1688에서 바로 결제해요.",s:use("wf")});
+    if(payUs) rows.push({t:"검수·통관·배송",us:1,d:"중국 창고에서 검수·포장하고, 통관을 거쳐 국내까지 보내요.",s:SV[buy].n});
+    else if(shipMe) rows.push({t:"검수·통관·배송",us:0,d:"필요할 때만 배송대행을 붙여요.",s:use("ship")+" (선택)"});
+    else rows.push({t:"검수·통관·배송",us:1,d:"중국 창고 입고부터 검수·통관·국내 배송까지 맡겨요.",s:use("ship")});
+    var first=(a.vol==="s"||a.vol==="x")?"샘플 주문으로 가볍게 시작해요.":"첫 주문부터 바로 시작해요.";
     var nUs=rows.filter(function(r){return r.us}).length, nMe=rows.length-nUs;
-    var h='<h3>나의 시작 플랜</h3><div class="tally"><span>내가 '+nMe+'단계</span><span class="us">셀레디가 '+nUs+'단계</span></div><ol class="route">';
-    rows.forEach(function(r){h+='<li class="'+(r.us?"us":"me")+'"><span class="dot"></span><div><div class="st"><b>'+r.t+'</b><span class="who">'+(r.us?"셀레디":"내가")+'</span></div><p>'+esc(r.d)+'</p></div></li>'});
-    h+='</ol><p class="foot">'+first+' 직접 하는 범위는 언제든 늘리고 줄일 수 있어요. 막히면 그 단계부터 셀레디가 이어받아요.</p>'+
-       '<div class="cta"><button type="button" class="btn main" id="go">이 플랜으로 상담 이어가기 →</button><a class="btn sub" href="#why">왜 셀레디인지 보기</a></div>';
+    var h='<h3>나의 판매 준비 플랜</h3><div class="tally"><span>내가 '+nMe+'단계</span><span class="us">중달이닷컴 '+(nUs?nUs+'단계':'필요할 때만')+'</span></div><ol class="route">';
+    rows.forEach(function(r){h+='<li class="'+(r.us?"us":"me")+'"><span class="dot"></span><div><div class="st"><b>'+r.t+'</b><span class="who">'+(r.us?"중달이닷컴":"내가")+'</span></div><p>'+esc(r.d)+'</p>'+(r.prep?PREP:'')+(r.s?'<span class="svc">→ '+esc(r.s)+'</span>':'')+'</div></li>'});
+    h+='<li class="ready-node"><span class="dot"></span><div><b>판매 준비 끝</b><p>'+first+'</p></div></li></ol>';
+    h+='<div class="links"><h4>이 플랜에 연결되는 서비스</h4>'+used.map(function(k){var v=SV[k];return '<a href="'+v.u+'" target="_blank" rel="noopener">'+esc(v.n)+'<span>'+esc(v.d)+' ↗</span></a>'}).join("")+'</div>';
+    h+='<p class="foot">직접 하는 범위는 언제든 늘리고 줄일 수 있어요. 막히면 그 단계부터 중달이닷컴 매니저가 이어받아요.</p>'+
+       '<div class="cta"><button type="button" class="btn main" id="go">이 플랜으로 상담 이어가기 →</button><a class="btn sub" href="#jungdari">중달이닷컴 서비스 보기</a></div>';
     var p=add(h,"plan");
     p.querySelector("#go").addEventListener("click",function(){toast("상담 연결은 준비 중이에요. 오픈하면 이 대화가 그대로 넘어가요.")});
     later(function(){
       add("더 궁금한 게 있으면 눌러 보세요.","msg bot");
       var c=document.createElement("div");c.className="chips";
-      [["뭐가 달라요?","방법을 하나로 정해 놓지 않는 거예요. 직접 하다 막히면 그 단계부터 셀레디가 이어받고, 익숙해지면 다시 직접 하면 돼요. 업체를 옮겨 다닐 필요가 없어요."],
+      [["뭐가 달라요?","방법을 하나로 정해 놓지 않는 거예요. 셀레디가 내 상황에 맞는 길을 짜고, 직접 결제는 월드퍼스트, 맡기는 구간은 중달이닷컴이 해요. 직접 하다 막히면 그 단계부터 중달이닷컴 매니저가 이어받아요."],
        ["비용은 어떻게 돼요?","어디까지 맡기느냐에 따라 달라져요. 상담에서 내 주문 기준으로 견적을 먼저 보여 드리고, 확인하신 다음에 진행해요."],
+       ["중달이닷컴이랑은 무슨 관계예요?","셀레디가 상황을 듣고 플랜을 짜면, 실제 소싱·구매·검수·통관·배송은 중달이닷컴이 맡아요. 셀레디에서 정한 플랜 그대로 이어져요."],
        ["나중에 바꿀 수 있어요?","네, 언제든요. 처음엔 맡기다가 결제만 직접 하거나, 반대로 직접 하다가 검수·배송을 맡길 수도 있어요."]
       ].forEach(function(x){
         var b=document.createElement("button");b.type="button";b.className="chip ghost";b.textContent=x[0];
@@ -366,13 +498,13 @@ footer b{color:#fff}
   document.getElementById("again").addEventListener("click",function(e){e.preventDefault();start();window.scrollTo({top:0,behavior:"smooth"})});
 
   /* handoff slider */
-  var L=[["01","상품 찾기"],["02","판매자 소통"],["03","결제·구매"],["04","검수·배송"]];
+  var L=[["01","소싱"],["02","판매자 소통"],["03","결제·구매"],["04","검수·통관·배송"]];
   var S=[[0,0,0,0],[0,0,0,1],[0,1,0,1],[0,1,1,1],[1,1,1,1]];
-  var C=["다 직접 해요. 필요할 때만 셀레디를 불러요.","결제까지 직접, 검수·배송은 셀레디가 챙겨요.","판매자 소통이 막히면 셀레디가 대신 물어봐요.","상품만 골라 주시면 나머지는 셀레디가 해요.","원하는 것만 말씀하세요. 처음부터 끝까지 셀레디가 해요."];
+  var C=["월드퍼스트로 직접 결제까지. 필요할 때만 중달이닷컴 배송대행을 불러요.","결제까지 월드퍼스트로 직접, 검수·통관·배송은 중달이닷컴 배송대행이 챙겨요.","판매자 소통이 막히면 중달이닷컴 매니저가 대신 물어봐요.","상품만 골라 주시면 결제부터는 중달이닷컴 구매대행이 해요.","원하는 것만 말씀하세요. 단가조사부터 배송까지 중달이닷컴이 해요."];
   var rng=document.getElementById("rng"),lanes=document.getElementById("lanes"),cap=document.getElementById("cap");
   function drawLanes(){
     var s=S[+rng.value];
-    lanes.innerHTML=L.map(function(l,i){return '<div class="lane'+(s[i]?" us":"")+'"><small>'+l[0]+'</small><b>'+l[1]+'</b><span>'+(s[i]?"셀레디":"내가")+'</span></div>'}).join("");
+    lanes.innerHTML=L.map(function(l,i){return '<div class="lane'+(s[i]?" us":"")+'"><small>'+l[0]+'</small><b>'+l[1]+'</b><span>'+(s[i]?"중달이닷컴":"내가")+'</span></div>'}).join("");
     cap.textContent=C[+rng.value];
   }
   rng.addEventListener("input",drawLanes); drawLanes();
