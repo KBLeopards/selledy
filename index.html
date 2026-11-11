@@ -536,9 +536,8 @@ footer b{color:#fff}
     h+='<li class="ready-node"><span class="dot"></span><div><b>판매 준비 끝</b><p>'+first+'</p></div></li></ol>';
     h+='<div class="links"><h4>이 플랜에 연결되는 서비스</h4>'+used.map(function(k){var v=SV[k];return '<a href="'+v.u+'" target="_blank" rel="noopener">'+esc(v.n)+'<span>'+esc(v.d)+' ↗</span></a>'}).join("")+'</div>';
     h+='<p class="foot">직접 하는 범위는 언제든 늘리고 줄일 수 있어요. 막히면 그 단계부터 중달이닷컴 서비스로 이어 갈 수 있어요.</p>'+
-       '<div class="cta"><button type="button" class="btn main" id="go">이 플랜으로 상담 이어가기 →</button><a class="btn sub" href="#jungdari">중달이닷컴 서비스 보기</a></div>';
+       '<div class="cta"><a class="btn main" href="https://channel.io" target="_blank" rel="noopener">이 플랜으로 지금 상담하기 ↗</a><a class="btn sub" href="https://www.jungdari.com" target="_blank" rel="noopener">중달이닷컴 바로가기 ↗</a></div>';
     var p=add(h,"plan");
-    p.querySelector("#go").addEventListener("click",function(){toast("상담 연결은 준비 중이에요.")});
     later(function(){
       add("더 궁금한 게 있으면 눌러 보세요.","msg bot");
       var c=document.createElement("div");c.className="chips";
