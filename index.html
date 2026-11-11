@@ -17,7 +17,7 @@
   --f-body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
 body{font-family:var(--f-body);background:var(--bg);color:var(--ink);line-height:1.6;word-break:keep-all;-webkit-font-smoothing:antialiased;font-size:16px}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
@@ -33,6 +33,31 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;display:f
 .logo span{font-family:var(--f-body);font-size:12.5px;font-weight:700;margin-left:10px;vertical-align:4px;opacity:.75}
 .hbtn{border:1.5px solid var(--edge);border-radius:999px;padding:7px 16px;font-weight:700;font-size:14px;background:var(--bg);transition:transform .15s,box-shadow .15s}
 .hbtn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(23,53,64,.10)}
+.hnav{display:flex;gap:4px;margin-left:28px;flex:1;min-width:0}
+.hnav a{font-size:14.5px;font-weight:700;color:var(--mute);padding:8px 12px;border-radius:10px;white-space:nowrap}
+.hnav a:hover{color:var(--tang-deep);background:var(--tang-soft)}
+.hright{display:flex;gap:8px;align-items:center;margin-left:auto}
+.mbtn{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--edge);border-radius:999px;padding:7px 14px 7px 12px;font-weight:700;font-size:14px;background:#fff;color:var(--ink)}
+.mbtn:hover,.mbtn[aria-expanded="true"]{border-color:var(--tang-deep);color:var(--tang-deep)}
+.bars{display:grid;gap:3px}
+.bars i{display:block;width:14px;height:2px;border-radius:2px;background:currentColor;transition:transform .2s,opacity .2s}
+.mbtn[aria-expanded="true"] .bars i:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.mbtn[aria-expanded="true"] .bars i:nth-child(2){opacity:0}
+.mbtn[aria-expanded="true"] .bars i:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+.mpanel{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 24px 40px rgba(23,53,64,.12);display:grid;grid-template-columns:1fr 1.2fr 1.2fr;gap:28px;padding-block:24px 28px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));max-height:calc(100vh - 60px);overflow-y:auto}
+.mcol{display:grid;gap:4px;align-content:start;min-width:0}
+.mcol h4{font-size:13px;font-weight:700;color:var(--mute);padding:0 10px 6px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.mcol h4 em{font-style:normal;font-size:11.5px;color:var(--tang-deep);background:var(--tang);border-radius:999px;padding:2px 8px}
+.mcol a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:9px 10px;border-radius:10px}
+.mcol a:hover{background:var(--tang-soft)}
+.mcol a b{font-size:15px;font-weight:700}
+.mcol a small{font-size:12.5px;color:var(--mute);text-align:right}
+.mcol a.ext{margin-top:6px;border:1.5px solid var(--edge)}
+.mcol a.ext b{color:var(--tang-deep)}
+header.top{position:sticky}
+@media (max-width:1080px){.hnav{display:none}}
+@media (max-width:860px){.mpanel{grid-template-columns:1fr;gap:18px}.hide-m{display:none}}
+
 
 /* stage */
 .stage{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-bottom:1.5px solid var(--edge)}
@@ -239,7 +264,35 @@ footer b{color:#fff}
 <body>
 <header class="top gut">
   <a class="logo" href="#top">셀레디<span>SELLEDY</span></a>
-  <a class="hbtn" href="#why">왜 셀레디?</a>
+  <nav class="hnav" aria-label="바로가기">
+    <a href="#name">셀레디란</a>
+    <a href="#why">왜 셀레디</a>
+    <a href="#guide">직접 결제 가이드</a>
+    <a href="#jungdari">중달이닷컴 서비스</a>
+    <a href="#partners">공식 파트너</a>
+  </nav>
+  <div class="hright">
+    <a class="hbtn hide-m" href="#top">대화로 플랜 짜기</a>
+    <button type="button" class="mbtn" id="mbtn" aria-expanded="false" aria-controls="mpanel"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>메뉴</button>
+  </div>
+  <div class="mpanel" id="mpanel" hidden>
+    <div class="mcol">
+      <h4>셀레디</h4>
+      <a href="#top"><b>대화로 플랜 짜기</b><small>질문 4개, 버튼만 누르면 돼요</small></a>
+      <a href="#name"><b>셀레디란</b><small>Sell + Ready, 판매 준비 끝</small></a>
+      <a href="#why"><b>왜 셀레디</b><small>함께해야 하는 이유 4가지</small></a>
+      <a href="#partners"><b>공식 파트너</b><small>월드퍼스트 · 중달이닷컴</small></a>
+    </div>
+    <div class="mcol">
+      <h4>직접 결제 가이드 <em>공식 파트너 월드퍼스트</em></h4>
+      <a href="https://docs.channel.io/sinkyu/ko/articles/STEP-1-1688-%EA%B3%84%EC%A0%95-%EB%A7%8C%EB%93%A4%EA%B8%B0-cf0f5d7f" target="_blank" rel="noopener"><b>1688 계정 만들기 ↗</b><small>STEP 1</small></a><a href="https://docs.channel.io/sinkyu/ko/articles/STEP-2-%EC%95%8C%EB%A6%AC%ED%8E%98%EC%9D%B4-%EA%B0%80%EC%9E%85--%EC%9D%B8%EC%A6%9D-09fa790f" target="_blank" rel="noopener"><b>알리페이 가입·인증 ↗</b><small>STEP 2</small></a><a href="https://docs.channel.io/sinkyu/ko/articles/STEP-3-%EC%9B%94%EB%93%9C%ED%8D%BC%EC%8A%A4%ED%8A%B8-%EA%B0%80%EC%9E%85-59b548bc" target="_blank" rel="noopener"><b>월드퍼스트 가입 ↗</b><small>STEP 3</small></a><a href="https://docs.channel.io/sinkyu/ko/articles/STEP-4-1688--%EC%95%8C%EB%A6%AC%ED%8E%98%EC%9D%B4-%EC%97%B0%EB%8F%99-371dfecd" target="_blank" rel="noopener"><b>1688·알리페이 연동 ↗</b><small>STEP 4</small></a><a href="https://docs.channel.io/sinkyu/ko/articles/STEP-5-1688--%EC%9B%94%EB%93%9C%ED%8D%BC%EC%8A%A4%ED%8A%B8-%EC%97%B0%EB%8F%99-2e45866f" target="_blank" rel="noopener"><b>1688·월드퍼스트 연동 ↗</b><small>STEP 5</small></a><a href="https://docs.channel.io/sinkyu/ko/articles/STEP--%EC%9B%90%ED%99%94-%EC%B6%A9%EC%A0%84--%EC%B2%AB-%EA%B2%B0%EC%A0%9C-6136bb5b" target="_blank" rel="noopener"><b>원화 충전·첫 결제 ↗</b><small>FIRST PAY</small></a>
+    </div>
+    <div class="mcol">
+      <h4>중달이닷컴 서비스 <em>공식 파트너</em></h4>
+      <a href="#sv-research"><b>단가조사</b><small>시세·최소 주문 수량·제작 기간</small></a><a href="#sv-pro"><b>구매대행 PRO</b><small>업체 협의부터 국내 배차까지</small></a><a href="#sv-lite"><b>구매대행 LITE</b><small>결제·입고·물류·통관 지원</small></a><a href="#sv-ship"><b>배송대행</b><small>입고·검수·통관·국내 배송</small></a><a href="#sv-pay"><b>결제대행</b><small>결제만 막혔을 때</small></a><a href="#sv-tour"><b>시장조사단</b><small>현지 도매시장 직접 조사</small></a>
+      <a class="ext" href="https://www.jungdari.com" target="_blank" rel="noopener"><b>중달이닷컴 바로가기 ↗</b><small>jungdari.com</small></a>
+    </div>
+  </div>
 </header>
 
 <main id="top">
@@ -318,12 +371,12 @@ footer b{color:#fff}
     <h2>맡기는 순간부터는<br>중달이닷컴이 해요.</h2>
     <p class="lead">셀레디는 길을 짜고, 실제 소싱·구매·검수·통관·배송은 중달이닷컴이 해요. 필요한 구간만 골라 맡기면 돼요.</p>
     <div class="svcs">
-      <article class="sv"><small>소싱</small><h3>단가조사</h3><p>팔고 싶은 상품의 시세, 최소 주문 수량, 제작 기간을 조사해요. 조사가 끝나면 그대로 구매대행으로 이어갈 수 있어요.</p><div class="fit"><b>이럴 때</b>상품은 정했는데 어디서 얼마에 사야 할지 모를 때</div><a href="https://www.jungdari.com" target="_blank" rel="noopener">중달이닷컴에서 보기 ↗</a></article>
-      <article class="sv"><small>전 과정</small><h3>구매대행 PRO</h3><p>전담 매니저가 업체 협의, 발주, 결제, 검수, 통관, 국내 배차까지 맡아요.</p><div class="fit"><b>이럴 때</b>처음부터 끝까지 믿고 맡기고 싶을 때</div><a href="https://www.jungdari.com" target="_blank" rel="noopener">중달이닷컴에서 보기 ↗</a></article>
-      <article class="sv"><small>결제 ~ 통관</small><h3>구매대행 LITE</h3><p>상품 링크가 있고 업체와 직접 소통할 수 있다면, 결제·입고·물류·통관만 지원받아요.</p><div class="fit"><b>이럴 때</b>소통은 직접 하고, 결제부터는 맡기고 싶을 때</div><a href="https://www.jungdari.com" target="_blank" rel="noopener">중달이닷컴에서 보기 ↗</a></article>
-      <article class="sv"><small>입고 ~ 배송</small><h3>배송대행</h3><p>1688 구매와 결제는 직접 하고, 중국 창고 입고부터 검수·통관·국내 배송까지 맡겨요.</p><div class="fit"><b>이럴 때</b>월드퍼스트로 직접 결제한 다음</div><a href="https://www.jungdari.com" target="_blank" rel="noopener">중달이닷컴에서 보기 ↗</a></article>
-      <article class="sv"><small>결제</small><h3>결제대행</h3><p>상품과 거래처는 정했는데 결제에서 막혔다면, 결제만 해결해요.</p><div class="fit"><b>이럴 때</b>다른 건 다 됐고 결제만 막혔을 때</div><a href="https://www.jungdari.com" target="_blank" rel="noopener">중달이닷컴에서 보기 ↗</a></article>
-      <article class="sv"><small>현지 조사</small><h3>시장조사단</h3><p>중국 현지 도매시장을 직접 둘러보며 상품과 공급처를 찾는 조사단이에요.</p><div class="fit"><b>이럴 때</b>화면 말고 현장에서 직접 보고 고르고 싶을 때</div><a href="https://www.jungdari.com" target="_blank" rel="noopener">중달이닷컴에서 보기 ↗</a></article>
+      <article class="sv" id="sv-research"><small>소싱</small><h3>단가조사</h3><p>팔고 싶은 상품의 시세, 최소 주문 수량, 제작 기간을 조사해요. 조사가 끝나면 그대로 구매대행으로 이어갈 수 있어요.</p><div class="fit"><b>이럴 때</b>상품은 정했는데 어디서 얼마에 사야 할지 모를 때</div><a href="https://www.jungdari.com" target="_blank" rel="noopener">중달이닷컴에서 보기 ↗</a></article>
+      <article class="sv" id="sv-pro"><small>전 과정</small><h3>구매대행 PRO</h3><p>전담 매니저가 업체 협의, 발주, 결제, 검수, 통관, 국내 배차까지 맡아요.</p><div class="fit"><b>이럴 때</b>처음부터 끝까지 믿고 맡기고 싶을 때</div><a href="https://www.jungdari.com" target="_blank" rel="noopener">중달이닷컴에서 보기 ↗</a></article>
+      <article class="sv" id="sv-lite"><small>결제 ~ 통관</small><h3>구매대행 LITE</h3><p>상품 링크가 있고 업체와 직접 소통할 수 있다면, 결제·입고·물류·통관만 지원받아요.</p><div class="fit"><b>이럴 때</b>소통은 직접 하고, 결제부터는 맡기고 싶을 때</div><a href="https://www.jungdari.com" target="_blank" rel="noopener">중달이닷컴에서 보기 ↗</a></article>
+      <article class="sv" id="sv-ship"><small>입고 ~ 배송</small><h3>배송대행</h3><p>1688 구매와 결제는 직접 하고, 중국 창고 입고부터 검수·통관·국내 배송까지 맡겨요.</p><div class="fit"><b>이럴 때</b>월드퍼스트로 직접 결제한 다음</div><a href="https://www.jungdari.com" target="_blank" rel="noopener">중달이닷컴에서 보기 ↗</a></article>
+      <article class="sv" id="sv-pay"><small>결제</small><h3>결제대행</h3><p>상품과 거래처는 정했는데 결제에서 막혔다면, 결제만 해결해요.</p><div class="fit"><b>이럴 때</b>다른 건 다 됐고 결제만 막혔을 때</div><a href="https://www.jungdari.com" target="_blank" rel="noopener">중달이닷컴에서 보기 ↗</a></article>
+      <article class="sv" id="sv-tour"><small>현지 조사</small><h3>시장조사단</h3><p>중국 현지 도매시장을 직접 둘러보며 상품과 공급처를 찾는 조사단이에요.</p><div class="fit"><b>이럴 때</b>화면 말고 현장에서 직접 보고 고르고 싶을 때</div><a href="https://www.jungdari.com" target="_blank" rel="noopener">중달이닷컴에서 보기 ↗</a></article>
     </div>
   </div>
 </section>
@@ -505,6 +558,12 @@ footer b{color:#fff}
 
   var tEl=document.getElementById("toast"),tT;
   function toast(m){tEl.textContent=m;tEl.classList.add("on");clearTimeout(tT);tT=setTimeout(function(){tEl.classList.remove("on")},2800)}
+  var mb=document.getElementById("mbtn"),mpn=document.getElementById("mpanel");
+  function setMenu(o){mb.setAttribute("aria-expanded",o);mpn.hidden=!o;}
+  mb.addEventListener("click",function(){setMenu(mpn.hidden)});
+  mpn.addEventListener("click",function(e){if(e.target.closest("a"))setMenu(false)});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")setMenu(false)});
+  document.addEventListener("click",function(e){if(!mpn.hidden&&!e.target.closest("header.top"))setMenu(false)});
   start();
 })();
 </script>
