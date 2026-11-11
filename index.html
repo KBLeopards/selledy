@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>셀레디 구매 진단</title>
+<meta name="description" content="질문 5개로 나에게 맞는 1688 중국 구매 방법을 찾아드려요.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700;900&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: 어두운 첫 화면에서 질문 → 진단 카드 → 3가지 방법 비교표 → 진행 과정 → FAQ. 한 가지 색 세계(남색+빨강·파랑)로 고정한 단일 테마 */
+:root{color-scheme:light;
+  --navy:#0A0F1F; --navy2:#121A30; --navy3:#1B2440; --line-d:#2A3454;
+  --red:#E8164F; --red-soft:#FFE8EE; --blue:#2F8CFF; --blue-soft:#E9F3FF;
+  --paper:#FFFFFF; --mist:#F3F5FA; --ink:#0D1220; --gray:#556078; --lg:#8E98AE; --bd:#DDE3EE;
+  --grad:linear-gradient(95deg,#E8164F 0%,#2F8CFF 100%);
+  --f-display:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f-body:"IBM Plex Sans KR","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:var(--f-body);color:var(--ink);background:var(--paper);line-height:1.6;word-break:keep-all;-webkit-font-smoothing:antialiased;font-size:16px}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--navy)}
+
+/* draft ribbon */
+.draft{background:var(--navy3);color:#C7CEE0;font-size:13px;text-align:center;padding-block:7px}
+.draft b{color:#fff;font-family:var(--f-mono);font-weight:600;letter-spacing:.04em;margin-right:8px}
+
+/* header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(10,15,31,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-d)}
+header.top .wrap{display:flex;align-items:center;gap:28px;height:64px}
+.logo{display:flex;align-items:baseline;gap:10px;color:#fff}
+.logo b{font-family:var(--f-display);font-weight:900;font-size:23px;letter-spacing:-.02em}
+.logo b i{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.logo small{font-size:12.5px;color:var(--lg);border-left:1px solid var(--line-d);padding-left:10px}
+nav.menu{display:flex;gap:24px;flex:1}
+nav.menu a{color:#C7CEE0;font-weight:600;font-size:15px;padding-block:4px;border-bottom:2px solid transparent}
+nav.menu a:hover{color:#fff;border-color:var(--red)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;font-weight:700;font-size:16px;padding:14px 24px;white-space:nowrap;transition:transform .15s,box-shadow .15s,background .15s,border-color .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-grad{background:var(--grad);color:#fff;box-shadow:0 10px 26px rgba(232,22,79,.28)}
+.btn-ghost{border:1.5px solid #3A4568;color:#fff}
+.btn-ghost:hover{border-color:#fff}
+.btn-light{border:1.5px solid var(--bd);background:#fff;color:var(--ink)}
+.btn-light:hover{border-color:var(--ink)}
+.btn-sm{font-size:14px;padding:10px 18px}
+@media (max-width:860px){nav.menu{display:none}header.top .wrap{justify-content:space-between}}
+
+/* hero */
+.hero{background:radial-gradient(circle at 4% 0%,rgba(232,22,79,.30),transparent 36%),radial-gradient(circle at 100% 60%,rgba(47,140,255,.30),transparent 34%),var(--navy);color:#fff;padding-block:80px 88px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.hero .wrap>*{min-width:0}
+.kicker{display:inline-flex;gap:10px;align-items:center;border:1px solid #33406A;border-radius:999px;padding:6px 14px;font-size:13.5px;color:#C7CEE0;font-weight:600}
+.kicker i{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(232,22,79,.25)}
+.hero h1{font-family:var(--f-display);font-weight:900;font-size:clamp(34px,5vw,58px);line-height:1.16;letter-spacing:-.035em;margin-top:24px;text-wrap:balance}
+.hero h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.sub{font-size:18.5px;color:#B9C1D4;margin-top:22px;max-width:520px}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.facts{display:flex;gap:0;margin-top:36px;border:1px solid var(--line-d);border-radius:16px;width:max-content;max-width:100%;overflow:hidden}
+.facts div{padding:12px 20px}
+.facts div+div{border-left:1px solid var(--line-d)}
+.facts small{display:block;font-size:12px;color:var(--lg)}
+.facts b{font-family:var(--f-mono);font-size:20px;font-weight:600}
+.preview{background:var(--navy2);border:1px solid var(--line-d);border-radius:26px;padding:24px;display:grid;gap:12px}
+.preview .ph{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--lg);font-weight:600}
+.preview .ph span:last-child{font-family:var(--f-mono)}
+.ptile{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:center;background:var(--navy3);border:1px solid var(--line-d);border-radius:18px;padding:16px;text-align:left;transition:border-color .15s,transform .15s}
+.ptile:hover{border-color:#6A7AA8;transform:translateX(4px)}
+.ptile .ic{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;font-family:var(--f-display);font-weight:900;font-size:20px}
+.ptile b{display:block;font-size:17px}
+.ptile small{display:block;font-size:14px;color:#AEB7CC;margin-top:2px}
+.ic.t-direct{background:rgba(47,140,255,.18);color:#7DB6FF}
+.ic.t-half{background:linear-gradient(135deg,rgba(47,140,255,.22),rgba(232,22,79,.22));color:#fff}
+.ic.t-manager{background:rgba(232,22,79,.18);color:#FF7EA1}
+@media (max-width:960px){.hero .wrap{grid-template-columns:1fr;gap:40px}}
+
+/* sections */
+section.sec{padding-block:96px}
+.mist{background:var(--mist)}
+.eyebrow{font-family:var(--f-mono);font-size:13px;font-weight:600;letter-spacing:.1em;color:var(--red);text-transform:uppercase}
+h2.h{font-family:var(--f-display);font-weight:900;font-size:clamp(28px,3.8vw,42px);line-height:1.25;letter-spacing:-.03em;margin-top:10px;text-wrap:balance}
+.lead{font-size:17px;color:var(--gray);margin-top:12px;max-width:640px}
+@media (max-width:560px){section.sec{padding-block:68px}}
+
+/* diagnosis */
+.dx{margin-top:40px;display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:start}
+.dx>*{min-width:0}
+.dx-side{background:#fff;border:1px solid var(--bd);border-radius:22px;padding:22px;position:sticky;top:96px}
+.dx-side h3{font-size:14px;color:var(--gray);font-weight:600}
+.steps{list-style:none;margin-top:14px;display:grid;gap:4px}
+.steps li{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:center;padding:8px 6px;border-radius:10px;font-size:14.5px;color:var(--lg)}
+.steps li .n{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--bd);display:grid;place-items:center;font-family:var(--f-mono);font-size:13px;font-weight:600}
+.steps li.done{color:var(--ink)}
+.steps li.done .n{background:var(--ink);border-color:var(--ink);color:#fff}
+.steps li.cur{background:var(--blue-soft);color:var(--ink);font-weight:700}
+.steps li.cur .n{border-color:var(--blue);color:var(--blue)}
+.steps li .a{display:block;font-size:12.5px;color:var(--gray);font-weight:500}
+.dx-card{background:#fff;border:1px solid var(--bd);border-radius:26px;padding:34px;box-shadow:0 20px 50px rgba(13,18,32,.07)}
+.bar{height:6px;background:var(--mist);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--grad);border-radius:99px;transition:width .3s}
+.qmeta{display:flex;justify-content:space-between;align-items:center;margin-top:20px;font-size:14px;color:var(--gray)}
+.qmeta span:first-child{font-family:var(--f-mono);font-weight:600;color:var(--blue)}
+.qmeta button{font-size:14px;color:var(--gray);font-weight:600;padding:4px 8px;border-radius:8px}
+.qmeta button:hover{color:var(--ink);background:var(--mist)}
+.qmeta button[disabled]{visibility:hidden}
+.dx-card h3.q{font-family:var(--f-display);font-weight:900;font-size:clamp(23px,2.8vw,30px);line-height:1.35;letter-spacing:-.025em;margin-top:10px;text-wrap:balance}
+.dx-card p.hint{color:var(--gray);margin-top:8px;font-size:15.5px}
+.opts{display:grid;gap:10px;margin-top:24px}
+.opt{display:grid;grid-template-columns:22px 1fr;gap:14px;align-items:start;text-align:left;border:1.5px solid var(--bd);border-radius:16px;padding:16px 18px;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--blue);background:#FAFCFF}
+.opt.sel{border-color:var(--blue);background:var(--blue-soft)}
+.opt .r{width:22px;height:22px;border-radius:50%;border:2px solid #B9C3D6;margin-top:2px}
+.opt.sel .r{border:7px solid var(--blue)}
+.opt b{display:block;font-size:16.5px}
+.opt small{display:block;color:var(--gray);font-size:14.5px;margin-top:2px}
+@media (max-width:860px){.dx{grid-template-columns:1fr}.dx-side{display:none}.dx-card{padding:24px 20px}}
+
+/* result */
+.res-top{display:grid;grid-template-columns:72px 1fr;gap:18px;align-items:center}
+.res-top .ic{width:72px;height:72px;border-radius:20px;display:grid;place-items:center;font-family:var(--f-display);font-weight:900;font-size:26px}
+.res .ic.t-direct{background:var(--blue-soft);color:var(--blue)}
+.res .ic.t-half{background:linear-gradient(135deg,var(--blue-soft),var(--red-soft));color:var(--ink)}
+.res .ic.t-manager{background:var(--red-soft);color:var(--red)}
+.res-top small{font-size:13.5px;font-weight:600;color:var(--gray)}
+.res-top h3{font-family:var(--f-display);font-weight:900;font-size:clamp(26px,3vw,34px);letter-spacing:-.03em;line-height:1.2}
+.res .tagline{font-size:18px;font-weight:600;margin-top:18px}
+.why{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
+.why span{font-size:14px;background:var(--mist);border-radius:999px;padding:6px 12px;color:var(--gray)}
+.why span b{color:var(--ink);font-weight:600}
+.split{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.split>div{border:1px solid var(--bd);border-radius:16px;padding:16px 18px}
+.split h4{font-size:13.5px;color:var(--gray);font-weight:600}
+.split ul{list-style:none;margin-top:8px;display:grid;gap:4px;font-size:15px}
+.split .me li::before{content:"●";color:var(--blue);font-size:9px;margin-right:8px;vertical-align:2px}
+.split .us li::before{content:"●";color:var(--red);font-size:9px;margin-right:8px;vertical-align:2px}
+.todo{margin-top:22px}
+.todo h4{font-size:15px;font-weight:700}
+.todo ol{list-style:none;margin-top:10px;display:grid;gap:8px;counter-reset:t}
+.todo li{counter-increment:t;display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start;font-size:15.5px}
+.todo li::before{content:counter(t);width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-family:var(--f-mono);font-size:13px;font-weight:600}
+.res-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.res-cta .btn-grad{flex:1 1 240px}
+.note{margin-top:14px;font-size:14px;color:var(--gray);background:var(--mist);border-radius:12px;padding:12px 14px}
+.note[hidden]{display:none}
+.others{margin-top:22px;padding-top:18px;border-top:1px dashed var(--bd);font-size:14.5px;color:var(--gray);display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+.others button{font-weight:700;color:var(--blue)}
+.others button:hover{text-decoration:underline}
+@media (max-width:560px){.split{grid-template-columns:1fr}.res-top{grid-template-columns:56px 1fr}.res-top .ic{width:56px;height:56px;font-size:21px;border-radius:16px}}
+
+/* methods table */
+.tbl-wrap{margin-top:40px;overflow-x:auto;border:1px solid var(--bd);border-radius:22px;background:#fff}
+table.m{width:100%;border-collapse:collapse;min-width:720px}
+table.m th,table.m td{padding:18px 20px;text-align:left;vertical-align:top;border-bottom:1px solid var(--bd)}
+table.m tr:last-child td{border-bottom:0}
+table.m thead th{background:var(--mist);font-size:15px}
+table.m thead th small{display:block;font-weight:500;color:var(--gray);font-size:13.5px;margin-top:2px}
+table.m thead th:first-child{width:150px}
+table.m tbody th{font-size:14.5px;color:var(--gray);font-weight:600}
+.who{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;border-radius:999px;padding:4px 12px}
+.who.me{background:var(--blue-soft);color:#1767C9}
+.who.us{background:var(--red-soft);color:#C30F42}
+table.m td p{font-size:14.5px;color:var(--gray);margin-top:6px}
+.legend{display:flex;gap:16px;margin-top:14px;font-size:14px;color:var(--gray);flex-wrap:wrap}
+
+/* process */
+.flow{list-style:none;margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:f}
+.flow li{counter-increment:f;border:1px solid var(--bd);border-radius:20px;padding:24px;background:#fff;position:relative}
+.flow li::before{content:"0" counter(f);font-family:var(--f-mono);font-weight:600;font-size:14px;color:var(--red)}
+.flow b{display:block;font-size:18px;margin-top:10px}
+.flow p{font-size:15px;color:var(--gray);margin-top:6px}
+@media (max-width:960px){.flow{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.flow{grid-template-columns:1fr}}
+
+/* partners */
+.partners{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.pc{border-radius:20px;padding:26px;border:1px solid var(--bd);background:#fff}
+.pc.main{background:var(--navy);color:#fff;border-color:var(--navy)}
+.pc small{font-family:var(--f-mono);font-size:12.5px;font-weight:600;letter-spacing:.06em;color:var(--gray)}
+.pc.main small{color:#9FA9C2}
+.pc b{display:block;font-family:var(--f-display);font-weight:900;font-size:22px;margin-top:8px;letter-spacing:-.02em}
+.pc p{font-size:15px;color:var(--gray);margin-top:8px}
+.pc.main p{color:#B9C1D4}
+@media (max-width:860px){.partners{grid-template-columns:1fr}}
+
+/* faq */
+.faq{margin-top:36px;display:grid;gap:10px;max-width:820px}
+.faq details{border:1px solid var(--bd);border-radius:16px;background:#fff;padding:0 22px}
+.faq summary{list-style:none;cursor:pointer;padding-block:18px;font-weight:700;font-size:16.5px;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--f-mono);font-size:20px;color:var(--gray);line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding-bottom:18px;color:var(--gray);font-size:15.5px}
+
+/* closing */
+.closing{background:radial-gradient(circle at 10% 100%,rgba(232,22,79,.28),transparent 40%),radial-gradient(circle at 90% 0%,rgba(47,140,255,.28),transparent 40%),var(--navy);color:#fff;padding-block:84px;text-align:center}
+.closing h2{font-family:var(--f-display);font-weight:900;font-size:clamp(28px,4vw,44px);letter-spacing:-.03em;line-height:1.25;text-wrap:balance}
+.closing p{color:#B9C1D4;margin-top:12px;font-size:17px}
+.closing .btn{margin-top:28px}
+footer{background:var(--navy);color:#8E98AE;font-size:13.5px;border-top:1px solid var(--line-d);padding-block:28px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+footer b{color:#fff}
+
+/* toast */
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:12px;font-size:14.5px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:80;max-width:calc(100% - 32px);text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+</style>
+
+</head>
+<body>
+<div class="draft"><b>DRAFT</b>셀레디 진단형 랜딩 초안 · 2026-11-11 · 문구와 연결 링크는 확정 전이에요</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top"><b>셀레<i>디</i></b><small>중국 구매 진단</small></a>
+    <nav class="menu" aria-label="메인 메뉴">
+      <a href="#diagnosis">진단하기</a>
+      <a href="#methods">구매 방법 3가지</a>
+      <a href="#process">진행 과정</a>
+      <a href="#faq">자주 묻는 질문</a>
+    </nav>
+    <a class="btn btn-grad btn-sm" href="#diagnosis">무료 진단 시작</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="kicker"><i></i>1688 중국 구매, 처음이라면</span>
+      <h1>중국 구매,<br>어디서부터 해야 할지<br><em>막막하다면</em></h1>
+      <p class="sub">질문 5개에 답하면 지금 내 상황에 맞는 구매 방법과 바로 할 일을 알려드려요. 직접 하든 맡기든, 시작은 여기서 같이 정해요.</p>
+      <div class="actions">
+        <a class="btn btn-grad" href="#diagnosis">3분 진단 시작하기 →</a>
+        <a class="btn btn-ghost" href="#methods">구매 방법 먼저 보기</a>
+      </div>
+      <div class="facts" aria-label="진단 안내">
+        <div><small>질문</small><b>5개</b></div>
+        <div><small>소요 시간</small><b>3분</b></div>
+        <div><small>비용</small><b>무료</b></div>
+      </div>
+    </div>
+    <div class="preview" aria-label="진단 결과 3가지">
+      <div class="ph"><span>진단 결과는 이 중 하나예요</span><span>3 TYPES</span></div>
+      <button class="ptile" data-show="direct"><span class="ic t-direct">직</span><span><b>직접구매형</b><small>직접 고르고, 바로 결제해요</small></span></button>
+      <button class="ptile" data-show="half"><span class="ic t-half">반</span><span><b>반반형</b><small>결제는 직접, 배송과 검수는 맡겨요</small></span></button>
+      <button class="ptile" data-show="manager"><span class="ic t-manager">매</span><span><b>매니저 지원형</b><small>상품 찾기부터 입고까지 함께해요</small></span></button>
+    </div>
+  </div>
+</section>
+
+<section class="sec mist" id="diagnosis">
+  <div class="wrap">
+    <div class="eyebrow">Diagnosis</div>
+    <h2 class="h">나에게 맞는 구매 방법 진단</h2>
+    <p class="lead">정답은 없어요. 지금 상황에 가장 가까운 답을 골라 주세요. 결과는 언제든 상담에서 바꿀 수 있어요.</p>
+    <div class="dx">
+      <aside class="dx-side" aria-label="진단 단계">
+        <h3>진단 단계</h3>
+        <ol class="steps" id="steps"></ol>
+      </aside>
+      <div class="dx-card" id="card" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="methods">
+  <div class="wrap">
+    <div class="eyebrow">3 Ways to buy</div>
+    <h2 class="h">구매 방법은 3가지예요</h2>
+    <p class="lead">어떤 방법이 더 좋은 게 아니라, 내가 직접 할 일과 맡길 일이 다를 뿐이에요. 상황이 바뀌면 방법도 바꿀 수 있어요.</p>
+    <div class="tbl-wrap">
+      <table class="m">
+        <thead><tr>
+          <th>단계</th>
+          <th>직접구매형<small>익숙하고, 내 속도대로 하고 싶은 분</small></th>
+          <th>반반형<small>결제는 직접, 물류는 덜고 싶은 분</small></th>
+          <th>매니저 지원형<small>처음이거나 시간이 부족한 분</small></th>
+        </tr></thead>
+        <tbody>
+          <tr><th>상품 찾기</th>
+            <td><span class="who me">내가 해요</span></td>
+            <td><span class="who me">내가 해요</span></td>
+            <td><span class="who us">매니저</span><p>원하는 상품을 알려 주시면 단가를 조사해 드려요</p></td></tr>
+          <tr><th>판매자 소통</th>
+            <td><span class="who me">내가 해요</span></td>
+            <td><span class="who me">내가 해요</span></td>
+            <td><span class="who us">매니저</span><p>옵션·수량·납기 확인을 대신해요</p></td></tr>
+          <tr><th>결제</th>
+            <td><span class="who me">내가 해요</span><p>월드퍼스트로 원화 충전 후 1688에서 바로 결제</p></td>
+            <td><span class="who me">내가 해요</span><p>월드퍼스트로 원화 충전 후 1688에서 바로 결제</p></td>
+            <td><span class="who us">매니저</span><p>견적 확인 후 맡겨 주시면 돼요</p></td></tr>
+          <tr><th>검수·배송</th>
+            <td><span class="who me">선택</span><p>필요하면 배송대행만 따로 맡길 수 있어요</p></td>
+            <td><span class="who us">맡겨요</span><p>현지 창고에서 검수·포장 후 국내로 보내요</p></td>
+            <td><span class="who us">맡겨요</span><p>진행 상황을 단계별로 알려드려요</p></td></tr>
+          <tr><th>이런 분께</th>
+            <td><p style="margin:0">1688에서 상품을 자주 직접 고르고, 원할 때 바로 주문하고 싶은 분</p></td>
+            <td><p style="margin:0">주문은 익숙한데 검수·포장·통관까지 챙기기는 부담스러운 분</p></td>
+            <td><p style="margin:0">중국 구매가 처음이거나, 판매자 소통·검수를 맡기고 싶은 분</p></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="legend"><span><span class="who me">내가 해요</span> 고객님이 직접</span><span><span class="who us">매니저</span> 담당 매니저가 지원</span></div>
+  </div>
+</section>
+
+<section class="sec mist" id="process">
+  <div class="wrap">
+    <div class="eyebrow">How it works</div>
+    <h2 class="h">진단부터 첫 주문까지</h2>
+    <ol class="flow">
+      <li><b>3분 진단</b><p>질문 5개로 지금 상황에 맞는 구매 방법을 확인해요.</p></li>
+      <li><b>결과 확인</b><p>내가 할 일과 맡길 일, 바로 할 일 3가지를 받아요.</p></li>
+      <li><b>채널톡 상담 신청</b><p>진단 결과를 그대로 남기면 다시 설명할 필요가 없어요.</p></li>
+      <li><b>첫 주문 시작</b><p>가이드를 따라 직접 시작하거나, 담당 매니저와 함께 시작해요.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" id="partners">
+  <div class="wrap">
+    <div class="eyebrow">Partners</div>
+    <h2 class="h">누가 함께하나요</h2>
+    <p class="lead">셀레디는 진단하고 연결하는 곳이에요. 결제와 수입 지원은 각 분야의 파트너가 맡아요.</p>
+    <div class="partners">
+      <div class="pc main"><small>PLATFORM</small><b>셀레디</b><p>고객 상황을 진단하고 맞는 구매 방법과 서비스로 연결해요.</p></div>
+      <div class="pc"><small>PAYMENT PARTNER</small><b>월드퍼스트</b><p>1688 직접 결제를 위한 해외 결제 파트너예요.</p></div>
+      <div class="pc"><small>IMPORT PARTNER</small><b>중달이닷컴</b><p>구매대행·배송대행·단가조사 등 중국 수입 전 과정을 지원해요.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec mist" id="faq">
+  <div class="wrap">
+    <div class="eyebrow">FAQ</div>
+    <h2 class="h">자주 묻는 질문</h2>
+    <div class="faq">
+      <details open><summary>진단은 무료인가요?</summary><p>네, 진단과 상담 신청 모두 무료예요.</p></details>
+      <details><summary>결과와 다른 방법을 선택해도 되나요?</summary><p>네. 진단 결과는 추천이에요. 상담하면서 다른 방법으로 바꿀 수 있어요.</p></details>
+      <details><summary>처음엔 맡기고, 익숙해지면 직접 해도 되나요?</summary><p>네. 매니저 지원형으로 시작해 익숙해지면 반반형이나 직접구매형으로 옮길 수 있어요.</p></details>
+      <details><summary>사업자등록이 없어도 시작할 수 있나요?</summary><p>매니저 지원형으로 시작할 수 있어요. 직접 결제는 가입할 때 사업자 정보 확인이 필요해서, 준비되면 따로 안내해 드려요.</p></details>
+      <details><summary>상담을 신청하면 언제 연락이 오나요?</summary><p>정식 오픈 전에는 신청하신 순서대로 오픈 시점에 먼저 연락드려요.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <h2>내게 맞는 방법부터 찾고 시작하세요</h2>
+    <p>질문 5개, 3분이면 충분해요.</p>
+    <a class="btn btn-grad" href="#diagnosis">무료 진단 시작하기 →</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b>셀레디</b> · 중국 구매 진단·연결 플랫폼 · 운영 빅벡터</span>
+    <span>파트너 월드퍼스트 · 중달이닷컴 · 이 페이지는 내부 검토용 초안이에요</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+  var GUIDE_URL = "https://docs.channel.io/sinkyu/ko";
+
+  var Q = [
+    {k:"exp", short:"구매 경험", q:"1688에서 상품을 직접 찾아본 적이 있나요?", hint:"사이트에서 검색하고 옵션을 비교해 본 경험을 떠올려 주세요.",
+     o:[{v:"often",t:"자주 직접 골라요",d:"검색, 옵션 비교, 판매자 선택까지 해 봤어요",s:2,why:"1688에서 상품을 자주 직접 고르세요"},
+        {v:"some",t:"몇 번 둘러본 정도예요",d:"구경은 해 봤지만 주문까지는 익숙하지 않아요",s:1,why:"1688을 몇 번 둘러보셨어요"},
+        {v:"none",t:"처음이에요",d:"어디서 어떻게 찾는지부터 궁금해요",s:-2,why:"1688이 처음이세요"}]},
+    {k:"biz", short:"사업자 여부", q:"사업자등록증이 있나요?", hint:"직접 결제 계정을 열 때 사업자 정보를 확인해요.",
+     o:[{v:"yes",t:"있어요",d:"개인사업자 또는 법인",s:1,why:"사업자 정보가 있으세요"},
+        {v:"soon",t:"준비 중이에요",d:"곧 등록할 예정이에요",s:0,why:"사업자 등록을 준비 중이세요"},
+        {v:"no",t:"없어요",d:"",s:0,why:"사업자 정보가 아직 없으세요"}]},
+    {k:"vol", short:"구매 규모", q:"한 달에 어느 정도 구매할 계획인가요?", hint:"대략적인 금액이면 충분해요.",
+     o:[{v:"s",t:"100만 원 미만",d:"",s:0,why:"월 100만 원 미만으로 구매하세요"},
+        {v:"m",t:"100만~500만 원",d:"",s:1,why:"월 100만~500만 원 규모로 구매하세요"},
+        {v:"l",t:"500만 원 이상",d:"",s:1,why:"월 500만 원 이상 꾸준히 구매하세요"},
+        {v:"x",t:"아직 모르겠어요",d:"",s:-1,why:"구매 규모를 아직 정하지 않으셨어요"}]},
+    {k:"talk", short:"판매자 소통", q:"판매자와 옵션·수량·납기를 직접 확인할 수 있나요?", hint:"중국어 채팅이나 번역기 사용을 포함해요.",
+     o:[{v:"ok",t:"직접 할 수 있어요",d:"",s:2,why:"판매자와 직접 소통할 수 있으세요"},
+        {v:"tr",t:"번역기로 어느 정도는 돼요",d:"",s:1,why:"번역기로 판매자와 소통할 수 있으세요"},
+        {v:"hard",t:"어려워요",d:"",s:-2,why:"판매자 소통이 어렵다고 하셨어요"}]},
+    {k:"want", short:"원하는 방식", q:"어떤 방식이 가장 편할 것 같나요?", hint:"지금 마음에 가장 가까운 걸 골라 주세요.",
+     o:[{v:"self",t:"원할 때 바로 주문하고 결제하고 싶어요",d:"내 속도대로 직접 진행",s:3,why:"원할 때 바로 주문하고 싶으세요"},
+        {v:"half",t:"결제는 직접, 배송·검수는 맡기고 싶어요",d:"번거로운 물류만 덜기",s:0,why:"배송·검수는 맡기고 싶으세요"},
+        {v:"all",t:"상품 찾기부터 입고까지 맡기고 싶어요",d:"처음부터 끝까지 도움받기",s:-3,why:"처음부터 끝까지 도움받고 싶으세요"}]}
+  ];
+
+  var R = {
+    direct:{name:"직접구매형",ic:"직",tag:"직접 고르고, 바로 결제하는 방식이 잘 맞아요.",
+      me:["상품 찾기·판매자 소통","월드퍼스트로 1688 직접 결제"],us:["가입·결제 가이드","필요하면 배송대행"],
+      todo:["월드퍼스트에 가입하고 1688 계정을 연결해요","원화로 충전한 뒤 1688에서 바로 결제해요","배송·검수가 필요하면 배송대행만 따로 맡겨요"],
+      sub:{t:"가입 가이드 보기",href:GUIDE_URL}},
+    half:{name:"반반형",ic:"반",tag:"결제는 직접 하고, 배송과 검수는 맡기는 방식이 잘 맞아요.",
+      me:["상품 찾기·판매자 소통","월드퍼스트로 1688 직접 결제"],us:["현지 창고 입고·검수","포장·국내 배송"],
+      todo:["월드퍼스트로 1688 직접 결제를 준비해요","주문한 상품을 현지 창고 주소로 보내요","검수·포장·국내 배송은 매니저가 챙겨요"],
+      sub:{t:"직접 결제 가이드 보기",href:GUIDE_URL}},
+    manager:{name:"매니저 지원형",ic:"매",tag:"상품 찾기부터 입고까지 매니저와 함께하는 방식이 잘 맞아요.",
+      me:["원하는 상품·수량 알려 주기","견적 확인"],us:["단가 조사·판매자 소통","구매·검수·배송"],
+      todo:["원하는 상품과 수량을 상담에서 알려 주세요","매니저가 단가를 조사하고 판매자와 조율해요","구매부터 입고까지 진행 상황을 단계별로 받아요"],
+      sub:null}
+  };
+
+  var ans = {}, cur = 0, card = document.getElementById("card"), stepsEl = document.getElementById("steps");
+
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+  function pick(qi){var a=ans[Q[qi].k];if(!a)return null;for(var i=0;i<Q[qi].o.length;i++)if(Q[qi].o[i].v===a)return Q[qi].o[i];return null}
+
+  function decide(){
+    var total=0; for(var i=0;i<Q.length;i++){var p=pick(i); if(p) total+=p.s;}
+    if(ans.biz==="no") return "manager";
+    if(ans.want==="all") return "manager";
+    if(ans.want==="half") return total<=-1 ? "manager" : "half";
+    if(total>=5) return "direct";
+    if(total>=1) return "half";
+    return "manager";
+  }
+
+  function renderSteps(done){
+    var h="";
+    for(var i=0;i<Q.length;i++){
+      var p=pick(i), cls = done ? "done" : (i<cur ? "done" : (i===cur ? "cur" : ""));
+      h+='<li class="'+cls+'"><span class="n">'+(i+1)+'</span><span>'+esc(Q[i].short)+(p?'<span class="a">'+esc(p.t)+'</span>':'')+'</span></li>';
+    }
+    h+='<li class="'+(done?"cur":"")+'"><span class="n">✓</span><span>진단 결과</span></li>';
+    stepsEl.innerHTML=h;
+  }
+
+  function renderQ(){
+    var q=Q[cur], pct=Math.round(cur/Q.length*100);
+    var h='<div class="bar"><i style="width:'+pct+'%"></i></div>'+
+      '<div class="qmeta"><span>Q'+(cur+1)+' / '+Q.length+'</span><button type="button" id="back"'+(cur===0?' disabled':'')+'>← 이전 질문</button></div>'+
+      '<h3 class="q">'+esc(q.q)+'</h3><p class="hint">'+esc(q.hint)+'</p><div class="opts" role="radiogroup" aria-label="'+esc(q.q)+'">';
+    q.o.forEach(function(o){
+      var sel=ans[q.k]===o.v;
+      h+='<button type="button" class="opt'+(sel?' sel':'')+'" role="radio" aria-checked="'+sel+'" data-v="'+o.v+'"><span class="r"></span><span><b>'+esc(o.t)+'</b>'+(o.d?'<small>'+esc(o.d)+'</small>':'')+'</span></button>';
+    });
+    h+='</div>';
+    card.innerHTML=h;
+    renderSteps(false);
+    card.querySelectorAll(".opt").forEach(function(b){
+      b.addEventListener("click",function(){
+        ans[q.k]=b.getAttribute("data-v");
+        card.querySelectorAll(".opt").forEach(function(x){x.classList.toggle("sel",x===b);x.setAttribute("aria-checked",x===b)});
+        setTimeout(function(){ if(cur<Q.length-1){cur++;renderQ();} else {renderR(decide(),true);} },220);
+      });
+    });
+    var back=document.getElementById("back");
+    if(back) back.addEventListener("click",function(){ if(cur>0){cur--;renderQ();} });
+  }
+
+  function renderR(type,fromAnswers){
+    var r=R[type];
+    var why="";
+    if(fromAnswers){
+      for(var i=0;i<Q.length;i++){var p=pick(i); if(p) why+='<span><b>'+esc(Q[i].short)+'</b> · '+esc(p.why)+'</span>';}
+    }
+    var h='<div class="bar"><i style="width:100%"></i></div><div class="res" style="margin-top:22px">'+
+      '<div class="res-top"><span class="ic t-'+type+'">'+r.ic+'</span><div><small>'+(fromAnswers?'진단 결과':'구매 방법 미리보기')+'</small><h3>'+r.name+'</h3></div></div>'+
+      '<p class="tagline">'+esc(r.tag)+'</p>'+
+      (why?'<div class="why">'+why+'</div>':'')+
+      '<div class="split"><div class="me"><h4>내가 할 일</h4><ul>'+r.me.map(function(x){return '<li>'+esc(x)+'</li>'}).join("")+'</ul></div>'+
+      '<div class="us"><h4>맡길 수 있는 일</h4><ul>'+r.us.map(function(x){return '<li>'+esc(x)+'</li>'}).join("")+'</ul></div></div>'+
+      '<div class="todo"><h4>지금 바로 할 일</h4><ol>'+r.todo.map(function(x){return '<li><span>'+esc(x)+'</span></li>'}).join("")+'</ol></div>'+
+      '<div class="res-cta"><button type="button" class="btn btn-grad" id="consult">이 결과로 채널톡 상담 신청 →</button>'+
+      (r.sub?'<a class="btn btn-light" href="'+r.sub.href+'" target="_blank" rel="noopener">'+esc(r.sub.t)+' ↗</a>':'')+'</div>'+
+      '<p class="note" id="cnote" hidden>초안이라 아직 채널톡과 연결되지 않았어요. 오픈 후에는 이 버튼을 누르면 진단 결과가 담긴 상담 창이 바로 열려요.</p>'+
+      '<div class="others"><span>다른 방법도 궁금하다면</span>'+
+      Object.keys(R).filter(function(k){return k!==type}).map(function(k){return '<button type="button" data-alt="'+k+'">'+R[k].name+' 보기</button>'}).join("")+
+      '<button type="button" id="restart" style="margin-left:auto;color:var(--gray)">↺ 처음부터 다시</button></div></div>';
+    card.innerHTML=h;
+    renderSteps(true);
+    document.getElementById("consult").addEventListener("click",function(){
+      document.getElementById("cnote").hidden=false; toast("초안: 채널톡 상담 연결 예정이에요");
+    });
+    card.querySelectorAll("[data-alt]").forEach(function(b){b.addEventListener("click",function(){renderR(b.getAttribute("data-alt"),false)})});
+    document.getElementById("restart").addEventListener("click",function(){ans={};cur=0;renderQ();});
+  }
+
+  var tEl=document.getElementById("toast"), tT;
+  function toast(m){tEl.textContent=m;tEl.classList.add("on");clearTimeout(tT);tT=setTimeout(function(){tEl.classList.remove("on")},2400)}
+
+  document.querySelectorAll("[data-show]").forEach(function(b){
+    b.addEventListener("click",function(){
+      renderR(b.getAttribute("data-show"),false);
+      document.getElementById("diagnosis").scrollIntoView({behavior:"smooth"});
+    });
+  });
+
+  renderQ();
+})();
+</script>
+</body>
+</html>
