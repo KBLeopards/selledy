@@ -4,501 +4,382 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>셀레디 구매 진단</title>
-<meta name="description" content="질문 5개로 나에게 맞는 1688 중국 구매 방법을 찾아드려요.">
+<title>셀레디</title>
+<meta name="description" content="1688 중국 구매, 몰라도 괜찮아요. 셀레디가 대화로 시작 플랜을 같이 짜 드려요.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700;900&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700&display=swap">
 <style>
-/* Layout: 어두운 첫 화면에서 질문 → 진단 카드 → 3가지 방법 비교표 → 진행 과정 → FAQ. 한 가지 색 세계(남색+빨강·파랑)로 고정한 단일 테마 */
+/* Layout: 첫 화면 = 왼쪽 '살아 있는 선언문'(답할 때마다 바뀜) + 오른쪽 대화. 그 아래 이유 4개를 포스터처럼 크게, 파트너, 마무리. 단일 테마(흰 바탕 + 탠저린) */
 :root{color-scheme:light;
-  --navy:#0A0F1F; --navy2:#121A30; --navy3:#1B2440; --line-d:#2A3454;
-  --red:#E8164F; --red-soft:#FFE8EE; --blue:#2F8CFF; --blue-soft:#E9F3FF;
-  --paper:#FFFFFF; --mist:#F3F5FA; --ink:#0D1220; --gray:#556078; --lg:#8E98AE; --bd:#DDE3EE;
-  --grad:linear-gradient(95deg,#E8164F 0%,#2F8CFF 100%);
-  --f-display:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
-  --f-body:"IBM Plex Sans KR","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
-  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --bg:#FFFFFF; --paper:#F4F5F7; --ink:#121417; --mute:#5F6571; --line:#E3E5E9;
+  --tang:#FF5A1F; --tang-deep:#E64610; --tang-soft:#FFEDE5;
+  --f-display:"Black Han Sans","Noto Sans KR","Apple SD Gothic Neo",sans-serif;
+  --f-body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{font-family:var(--f-body);color:var(--ink);background:var(--paper);line-height:1.6;word-break:keep-all;-webkit-font-smoothing:antialiased;font-size:16px}
+html{scroll-behavior:smooth}
+body{font-family:var(--f-body);background:var(--bg);color:var(--ink);line-height:1.6;word-break:keep-all;-webkit-font-smoothing:antialiased;font-size:16px}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:8px}
-.wrap{max-width:1160px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:10px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--navy)}
-
-/* draft ribbon */
-.draft{background:var(--navy3);color:#C7CEE0;font-size:13px;text-align:center;padding-block:7px}
-.draft b{color:#fff;font-family:var(--f-mono);font-weight:600;letter-spacing:.04em;margin-right:8px}
+.gut{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--tang)}
 
 /* header */
-header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(10,15,31,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-d)}
-header.top .wrap{display:flex;align-items:center;gap:28px;height:64px}
-.logo{display:flex;align-items:baseline;gap:10px;color:#fff}
-.logo b{font-family:var(--f-display);font-weight:900;font-size:23px;letter-spacing:-.02em}
-.logo b i{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.logo small{font-size:12.5px;color:var(--lg);border-left:1px solid var(--line-d);padding-left:10px}
-nav.menu{display:flex;gap:24px;flex:1}
-nav.menu a{color:#C7CEE0;font-weight:600;font-size:15px;padding-block:4px;border-bottom:2px solid transparent}
-nav.menu a:hover{color:#fff;border-color:var(--red)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;font-weight:700;font-size:16px;padding:14px 24px;white-space:nowrap;transition:transform .15s,box-shadow .15s,background .15s,border-color .15s}
-.btn:hover{transform:translateY(-2px)}
-.btn-grad{background:var(--grad);color:#fff;box-shadow:0 10px 26px rgba(232,22,79,.28)}
-.btn-ghost{border:1.5px solid #3A4568;color:#fff}
-.btn-ghost:hover{border-color:#fff}
-.btn-light{border:1.5px solid var(--bd);background:#fff;color:var(--ink)}
-.btn-light:hover{border-color:var(--ink)}
-.btn-sm{font-size:14px;padding:10px 18px}
-@media (max-width:860px){nav.menu{display:none}header.top .wrap{justify-content:space-between}}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;display:flex;align-items:center;justify-content:space-between;height:60px;background:var(--tang);border-bottom:2px solid var(--ink)}
+.logo{font-family:var(--f-display);font-size:26px;letter-spacing:-.01em;line-height:1}
+.logo span{font-family:var(--f-body);font-size:12.5px;font-weight:700;margin-left:10px;vertical-align:4px;opacity:.75}
+.hbtn{border:2px solid var(--ink);border-radius:999px;padding:7px 16px;font-weight:700;font-size:14px;background:var(--bg);transition:transform .15s,box-shadow .15s}
+.hbtn:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--ink)}
 
-/* hero */
-.hero{background:radial-gradient(circle at 4% 0%,rgba(232,22,79,.30),transparent 36%),radial-gradient(circle at 100% 60%,rgba(47,140,255,.30),transparent 34%),var(--navy);color:#fff;padding-block:80px 88px}
-.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
-.hero .wrap>*{min-width:0}
-.kicker{display:inline-flex;gap:10px;align-items:center;border:1px solid #33406A;border-radius:999px;padding:6px 14px;font-size:13.5px;color:#C7CEE0;font-weight:600}
-.kicker i{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(232,22,79,.25)}
-.hero h1{font-family:var(--f-display);font-weight:900;font-size:clamp(34px,5vw,58px);line-height:1.16;letter-spacing:-.035em;margin-top:24px;text-wrap:balance}
-.hero h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p.sub{font-size:18.5px;color:#B9C1D4;margin-top:22px;max-width:520px}
-.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.facts{display:flex;gap:0;margin-top:36px;border:1px solid var(--line-d);border-radius:16px;width:max-content;max-width:100%;overflow:hidden}
-.facts div{padding:12px 20px}
-.facts div+div{border-left:1px solid var(--line-d)}
-.facts small{display:block;font-size:12px;color:var(--lg)}
-.facts b{font-family:var(--f-mono);font-size:20px;font-weight:600}
-.preview{background:var(--navy2);border:1px solid var(--line-d);border-radius:26px;padding:24px;display:grid;gap:12px}
-.preview .ph{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--lg);font-weight:600}
-.preview .ph span:last-child{font-family:var(--f-mono)}
-.ptile{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:center;background:var(--navy3);border:1px solid var(--line-d);border-radius:18px;padding:16px;text-align:left;transition:border-color .15s,transform .15s}
-.ptile:hover{border-color:#6A7AA8;transform:translateX(4px)}
-.ptile .ic{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;font-family:var(--f-display);font-weight:900;font-size:20px}
-.ptile b{display:block;font-size:17px}
-.ptile small{display:block;font-size:14px;color:#AEB7CC;margin-top:2px}
-.ic.t-direct{background:rgba(47,140,255,.18);color:#7DB6FF}
-.ic.t-half{background:linear-gradient(135deg,rgba(47,140,255,.22),rgba(232,22,79,.22));color:#fff}
-.ic.t-manager{background:rgba(232,22,79,.18);color:#FF7EA1}
-@media (max-width:960px){.hero .wrap{grid-template-columns:1fr;gap:40px}}
+/* stage */
+.stage{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-bottom:2px solid var(--ink)}
+.mani{background:var(--tang);border-right:2px solid var(--ink);position:relative}
+.mani-in{position:sticky;top:60px;padding-block:64px 56px;display:flex;flex-direction:column;gap:22px;min-height:calc(100vh - 60px - 32px);justify-content:center}
+.mani .tag{font-weight:700;font-size:14px;display:flex;gap:8px;align-items:center}
+.mani .tag i{width:10px;height:10px;border-radius:50%;background:var(--ink)}
+.mani h1{font-family:var(--f-display);font-weight:400;font-size:clamp(52px,8.4vw,128px);line-height:.98;letter-spacing:-.02em;text-wrap:balance;transition:opacity .25s,transform .25s}
+.mani h1.swap{opacity:0;transform:translateY(14px)}
+.mani p{font-size:clamp(17px,1.6vw,21px);font-weight:500;max-width:30ch;transition:opacity .25s}
+.mani p.swap{opacity:0}
+.meter{display:flex;gap:6px;margin-top:6px}
+.meter b{width:34px;height:8px;border-radius:99px;border:2px solid var(--ink);background:transparent;transition:background .2s}
+.meter b.on{background:var(--ink)}
 
-/* sections */
-section.sec{padding-block:96px}
-.mist{background:var(--mist)}
-.eyebrow{font-family:var(--f-mono);font-size:13px;font-weight:600;letter-spacing:.1em;color:var(--red);text-transform:uppercase}
-h2.h{font-family:var(--f-display);font-weight:900;font-size:clamp(28px,3.8vw,42px);line-height:1.25;letter-spacing:-.03em;margin-top:10px;text-wrap:balance}
-.lead{font-size:17px;color:var(--gray);margin-top:12px;max-width:640px}
-@media (max-width:560px){section.sec{padding-block:68px}}
+.chat{background:var(--paper);padding-block:36px 48px;display:flex;flex-direction:column}
+.chat-head{display:flex;align-items:center;gap:12px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.ava{width:44px;height:44px;border-radius:14px;background:var(--tang);border:2px solid var(--ink);display:grid;place-items:center;font-family:var(--f-display);font-size:20px;flex:none}
+.chat-head b{display:block;font-size:16px}
+.chat-head small{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--mute)}
+.chat-head small i{width:8px;height:8px;border-radius:50%;background:#1DB954}
+.restart{margin-left:auto;font-size:13.5px;color:var(--mute);font-weight:700;padding:6px 10px;border-radius:8px}
+.restart:hover{background:#fff;color:var(--ink)}
+.log{display:flex;flex-direction:column;gap:10px;padding-top:22px;max-width:560px;width:100%}
+.msg{max-width:88%;padding:12px 16px;border-radius:18px;font-size:16px;line-height:1.55;animation:pop .22s ease-out both}
+.msg.bot{background:#fff;border:1px solid var(--line);border-top-left-radius:6px;align-self:flex-start}
+.msg.bot.q{font-weight:700;font-size:17px}
+.msg.me{background:var(--ink);color:#fff;border-top-right-radius:6px;align-self:flex-end}
+@keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.typing{align-self:flex-start;background:#fff;border:1px solid var(--line);border-radius:18px;border-top-left-radius:6px;padding:14px 16px;display:flex;gap:5px}
+.typing i{width:7px;height:7px;border-radius:50%;background:#A3A9B4;animation:blink 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes blink{0%,80%,100%{opacity:.3}40%{opacity:1}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;margin-top:6px;animation:pop .22s ease-out both}
+.chip{border:2px solid var(--ink);background:#fff;border-radius:999px;padding:10px 16px;font-weight:700;font-size:15px;text-align:left;transition:transform .12s,box-shadow .12s,background .12s}
+.chip:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--ink);background:var(--tang-soft)}
+.chip.ghost{border-style:dashed;font-weight:500}
 
-/* diagnosis */
-.dx{margin-top:40px;display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:start}
-.dx>*{min-width:0}
-.dx-side{background:#fff;border:1px solid var(--bd);border-radius:22px;padding:22px;position:sticky;top:96px}
-.dx-side h3{font-size:14px;color:var(--gray);font-weight:600}
-.steps{list-style:none;margin-top:14px;display:grid;gap:4px}
-.steps li{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:center;padding:8px 6px;border-radius:10px;font-size:14.5px;color:var(--lg)}
-.steps li .n{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--bd);display:grid;place-items:center;font-family:var(--f-mono);font-size:13px;font-weight:600}
-.steps li.done{color:var(--ink)}
-.steps li.done .n{background:var(--ink);border-color:var(--ink);color:#fff}
-.steps li.cur{background:var(--blue-soft);color:var(--ink);font-weight:700}
-.steps li.cur .n{border-color:var(--blue);color:var(--blue)}
-.steps li .a{display:block;font-size:12.5px;color:var(--gray);font-weight:500}
-.dx-card{background:#fff;border:1px solid var(--bd);border-radius:26px;padding:34px;box-shadow:0 20px 50px rgba(13,18,32,.07)}
-.bar{height:6px;background:var(--mist);border-radius:99px;overflow:hidden}
-.bar i{display:block;height:100%;background:var(--grad);border-radius:99px;transition:width .3s}
-.qmeta{display:flex;justify-content:space-between;align-items:center;margin-top:20px;font-size:14px;color:var(--gray)}
-.qmeta span:first-child{font-family:var(--f-mono);font-weight:600;color:var(--blue)}
-.qmeta button{font-size:14px;color:var(--gray);font-weight:600;padding:4px 8px;border-radius:8px}
-.qmeta button:hover{color:var(--ink);background:var(--mist)}
-.qmeta button[disabled]{visibility:hidden}
-.dx-card h3.q{font-family:var(--f-display);font-weight:900;font-size:clamp(23px,2.8vw,30px);line-height:1.35;letter-spacing:-.025em;margin-top:10px;text-wrap:balance}
-.dx-card p.hint{color:var(--gray);margin-top:8px;font-size:15.5px}
-.opts{display:grid;gap:10px;margin-top:24px}
-.opt{display:grid;grid-template-columns:22px 1fr;gap:14px;align-items:start;text-align:left;border:1.5px solid var(--bd);border-radius:16px;padding:16px 18px;transition:border-color .15s,background .15s}
-.opt:hover{border-color:var(--blue);background:#FAFCFF}
-.opt.sel{border-color:var(--blue);background:var(--blue-soft)}
-.opt .r{width:22px;height:22px;border-radius:50%;border:2px solid #B9C3D6;margin-top:2px}
-.opt.sel .r{border:7px solid var(--blue)}
-.opt b{display:block;font-size:16.5px}
-.opt small{display:block;color:var(--gray);font-size:14.5px;margin-top:2px}
-@media (max-width:860px){.dx{grid-template-columns:1fr}.dx-side{display:none}.dx-card{padding:24px 20px}}
+/* plan card */
+.plan{align-self:stretch;background:#fff;border:2px solid var(--ink);border-radius:22px;padding:22px;box-shadow:6px 6px 0 var(--ink);animation:pop .3s ease-out both;margin-top:4px}
+.plan h3{font-family:var(--f-display);font-weight:400;font-size:28px;line-height:1.15}
+.plan .tally{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.plan .tally span{font-size:13.5px;font-weight:700;border-radius:999px;padding:4px 12px;border:1.5px solid var(--ink)}
+.plan .tally .us{background:var(--tang);}
+.route{list-style:none;margin-top:18px;display:grid;gap:0}
+.route li{display:grid;grid-template-columns:22px 1fr;gap:14px;position:relative;padding-bottom:16px}
+.route li:last-child{padding-bottom:0}
+.route li::before{content:"";position:absolute;left:10px;top:24px;bottom:0;width:2px;background:var(--line)}
+.route li:last-child::before{display:none}
+.route .dot{width:22px;height:22px;border-radius:50%;border:2px solid var(--ink);background:#fff;margin-top:2px;position:relative;z-index:1}
+.route li.us .dot{background:var(--tang)}
+.route .st{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.route .st b{font-size:15.5px}
+.route .who{font-size:12.5px;font-weight:700;border-radius:999px;padding:2px 10px;border:1.5px solid var(--ink)}
+.route li.us .who{background:var(--tang)}
+.route p{font-size:15px;color:var(--mute);margin-top:2px}
+.plan .foot{margin-top:18px;padding-top:14px;border-top:1px dashed var(--line);font-size:14.5px;font-weight:500}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:2px solid var(--ink);border-radius:999px;padding:13px 22px;font-weight:700;font-size:16px;transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+.btn.main{background:var(--tang);flex:1 1 220px}
+.btn.sub{background:#fff}
 
-/* result */
-.res-top{display:grid;grid-template-columns:72px 1fr;gap:18px;align-items:center}
-.res-top .ic{width:72px;height:72px;border-radius:20px;display:grid;place-items:center;font-family:var(--f-display);font-weight:900;font-size:26px}
-.res .ic.t-direct{background:var(--blue-soft);color:var(--blue)}
-.res .ic.t-half{background:linear-gradient(135deg,var(--blue-soft),var(--red-soft));color:var(--ink)}
-.res .ic.t-manager{background:var(--red-soft);color:var(--red)}
-.res-top small{font-size:13.5px;font-weight:600;color:var(--gray)}
-.res-top h3{font-family:var(--f-display);font-weight:900;font-size:clamp(26px,3vw,34px);letter-spacing:-.03em;line-height:1.2}
-.res .tagline{font-size:18px;font-weight:600;margin-top:18px}
-.why{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
-.why span{font-size:14px;background:var(--mist);border-radius:999px;padding:6px 12px;color:var(--gray)}
-.why span b{color:var(--ink);font-weight:600}
-.split{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.split>div{border:1px solid var(--bd);border-radius:16px;padding:16px 18px}
-.split h4{font-size:13.5px;color:var(--gray);font-weight:600}
-.split ul{list-style:none;margin-top:8px;display:grid;gap:4px;font-size:15px}
-.split .me li::before{content:"●";color:var(--blue);font-size:9px;margin-right:8px;vertical-align:2px}
-.split .us li::before{content:"●";color:var(--red);font-size:9px;margin-right:8px;vertical-align:2px}
-.todo{margin-top:22px}
-.todo h4{font-size:15px;font-weight:700}
-.todo ol{list-style:none;margin-top:10px;display:grid;gap:8px;counter-reset:t}
-.todo li{counter-increment:t;display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start;font-size:15.5px}
-.todo li::before{content:counter(t);width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-family:var(--f-mono);font-size:13px;font-weight:600}
-.res-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-.res-cta .btn-grad{flex:1 1 240px}
-.note{margin-top:14px;font-size:14px;color:var(--gray);background:var(--mist);border-radius:12px;padding:12px 14px}
-.note[hidden]{display:none}
-.others{margin-top:22px;padding-top:18px;border-top:1px dashed var(--bd);font-size:14.5px;color:var(--gray);display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
-.others button{font-weight:700;color:var(--blue)}
-.others button:hover{text-decoration:underline}
-@media (max-width:560px){.split{grid-template-columns:1fr}.res-top{grid-template-columns:56px 1fr}.res-top .ic{width:56px;height:56px;font-size:21px;border-radius:16px}}
+@media (max-width:900px){
+  .stage{grid-template-columns:1fr}
+  .mani{border-right:0;border-bottom:2px solid var(--ink)}
+  .mani-in{position:static;min-height:0;padding-block:32px 28px;gap:12px}
+  .mani h1{font-size:clamp(44px,13vw,72px)}
+  .chat{padding-block:24px 36px}
+  .msg{max-width:92%}
+}
 
-/* methods table */
-.tbl-wrap{margin-top:40px;overflow-x:auto;border:1px solid var(--bd);border-radius:22px;background:#fff}
-table.m{width:100%;border-collapse:collapse;min-width:720px}
-table.m th,table.m td{padding:18px 20px;text-align:left;vertical-align:top;border-bottom:1px solid var(--bd)}
-table.m tr:last-child td{border-bottom:0}
-table.m thead th{background:var(--mist);font-size:15px}
-table.m thead th small{display:block;font-weight:500;color:var(--gray);font-size:13.5px;margin-top:2px}
-table.m thead th:first-child{width:150px}
-table.m tbody th{font-size:14.5px;color:var(--gray);font-weight:600}
-.who{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;border-radius:999px;padding:4px 12px}
-.who.me{background:var(--blue-soft);color:#1767C9}
-.who.us{background:var(--red-soft);color:#C30F42}
-table.m td p{font-size:14.5px;color:var(--gray);margin-top:6px}
-.legend{display:flex;gap:16px;margin-top:14px;font-size:14px;color:var(--gray);flex-wrap:wrap}
+/* reasons */
+.why{padding-block:96px}
+.why .lab{font-weight:700;font-size:15px;color:var(--mute)}
+.why h2{font-family:var(--f-display);font-weight:400;font-size:clamp(34px,5vw,64px);line-height:1.08;margin-top:8px;text-wrap:balance}
+.rs{margin-top:48px;display:grid;gap:0;border-top:2px solid var(--ink)}
+.r{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px;padding-block:34px;border-bottom:2px solid var(--ink);align-items:end}
+.r h3{font-family:var(--f-display);font-weight:400;font-size:clamp(32px,4.6vw,60px);line-height:1.05;letter-spacing:-.01em;text-wrap:balance}
+.r h3 em{font-style:normal;color:var(--tang-deep)}
+.r p{font-size:17.5px;color:var(--mute);max-width:44ch}
+.r p b{color:var(--ink)}
+@media (max-width:760px){.r{grid-template-columns:1fr;gap:10px;padding-block:26px}.why{padding-block:64px}}
 
-/* process */
-.flow{list-style:none;margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:f}
-.flow li{counter-increment:f;border:1px solid var(--bd);border-radius:20px;padding:24px;background:#fff;position:relative}
-.flow li::before{content:"0" counter(f);font-family:var(--f-mono);font-weight:600;font-size:14px;color:var(--red)}
-.flow b{display:block;font-size:18px;margin-top:10px}
-.flow p{font-size:15px;color:var(--gray);margin-top:6px}
-@media (max-width:960px){.flow{grid-template-columns:1fr 1fr}}
-@media (max-width:560px){.flow{grid-template-columns:1fr}}
+/* handoff band */
+.band{background:var(--ink);color:#fff;padding-block:84px}
+.band h2{font-family:var(--f-display);font-weight:400;font-size:clamp(30px,4.4vw,54px);line-height:1.1;text-wrap:balance}
+.band .lead{color:#B8BDC7;font-size:17px;margin-top:12px;max-width:52ch}
+.slider{margin-top:40px;max-width:900px}
+.slider input{width:100%;accent-color:var(--tang);height:28px;cursor:pointer}
+.ends{display:flex;justify-content:space-between;font-weight:700;font-size:14.5px;color:#B8BDC7;margin-top:6px}
+.lanes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:24px}
+.lane{border:2px solid #3A3F49;border-radius:16px;padding:16px;transition:background .2s,border-color .2s,color .2s}
+.lane small{display:block;font-size:12.5px;font-weight:700;color:#8C929D}
+.lane b{display:block;font-size:17px;margin-top:4px}
+.lane span{display:inline-block;margin-top:10px;font-size:13px;font-weight:700;border-radius:999px;padding:3px 10px;border:1.5px solid #5A606B}
+.lane.us{background:var(--tang);border-color:var(--tang);color:var(--ink)}
+.lane.us small{color:var(--ink);opacity:.7}
+.lane.us span{border-color:var(--ink)}
+.band .cap{margin-top:18px;font-size:17px;font-weight:500;min-height:1.6em}
+@media (max-width:760px){.lanes{grid-template-columns:repeat(2,minmax(0,1fr))}.band{padding-block:64px}}
 
 /* partners */
-.partners{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
-.pc{border-radius:20px;padding:26px;border:1px solid var(--bd);background:#fff}
-.pc.main{background:var(--navy);color:#fff;border-color:var(--navy)}
-.pc small{font-family:var(--f-mono);font-size:12.5px;font-weight:600;letter-spacing:.06em;color:var(--gray)}
-.pc.main small{color:#9FA9C2}
-.pc b{display:block;font-family:var(--f-display);font-weight:900;font-size:22px;margin-top:8px;letter-spacing:-.02em}
-.pc p{font-size:15px;color:var(--gray);margin-top:8px}
-.pc.main p{color:#B9C1D4}
-@media (max-width:860px){.partners{grid-template-columns:1fr}}
-
-/* faq */
-.faq{margin-top:36px;display:grid;gap:10px;max-width:820px}
-.faq details{border:1px solid var(--bd);border-radius:16px;background:#fff;padding:0 22px}
-.faq summary{list-style:none;cursor:pointer;padding-block:18px;font-weight:700;font-size:16.5px;display:flex;justify-content:space-between;gap:16px}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-family:var(--f-mono);font-size:20px;color:var(--gray);line-height:1}
-.faq details[open] summary::after{content:"–"}
-.faq details p{padding-bottom:18px;color:var(--gray);font-size:15.5px}
+.pt{padding-block:84px}
+.pt h2{font-family:var(--f-display);font-weight:400;font-size:clamp(28px,3.8vw,46px);line-height:1.12}
+.pgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:36px;border:2px solid var(--ink);border-radius:22px;overflow:hidden}
+.pc{padding:26px;border-right:2px solid var(--ink)}
+.pc:last-child{border-right:0}
+.pc.me{background:var(--tang)}
+.pc small{font-size:13px;font-weight:700;color:var(--mute)}
+.pc.me small{color:var(--ink);opacity:.75}
+.pc b{display:block;font-family:var(--f-display);font-weight:400;font-size:30px;margin-top:6px;line-height:1.1}
+.pc p{font-size:15.5px;margin-top:8px;color:var(--mute)}
+.pc.me p{color:var(--ink)}
+@media (max-width:760px){.pgrid{grid-template-columns:1fr}.pc{border-right:0;border-bottom:2px solid var(--ink)}.pc:last-child{border-bottom:0}.pt{padding-block:64px}}
 
 /* closing */
-.closing{background:radial-gradient(circle at 10% 100%,rgba(232,22,79,.28),transparent 40%),radial-gradient(circle at 90% 0%,rgba(47,140,255,.28),transparent 40%),var(--navy);color:#fff;padding-block:84px;text-align:center}
-.closing h2{font-family:var(--f-display);font-weight:900;font-size:clamp(28px,4vw,44px);letter-spacing:-.03em;line-height:1.25;text-wrap:balance}
-.closing p{color:#B9C1D4;margin-top:12px;font-size:17px}
-.closing .btn{margin-top:28px}
-footer{background:var(--navy);color:#8E98AE;font-size:13.5px;border-top:1px solid var(--line-d);padding-block:28px}
-footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+.closing{background:var(--tang);border-top:2px solid var(--ink);padding-block:80px;text-align:center}
+.closing h2{font-family:var(--f-display);font-weight:400;font-size:clamp(48px,9vw,120px);line-height:.98}
+.closing p{font-size:18px;font-weight:500;margin-top:16px}
+.closing .btn{margin-top:26px;background:var(--ink);color:#fff}
+.closing .btn:hover{box-shadow:4px 4px 0 #fff}
+footer{background:var(--ink);color:#9AA0AA;font-size:13.5px;padding-block:26px;display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-between}
 footer b{color:#fff}
 
-/* toast */
+.wrap{max-width:1160px;margin:0 auto}
 .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:12px;font-size:14.5px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:80;max-width:calc(100% - 32px);text-align:center}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 </style>
 
 </head>
 <body>
-<div class="draft"><b>DRAFT</b>셀레디 진단형 랜딩 초안 · 2026-11-11 · 문구와 연결 링크는 확정 전이에요</div>
-
-<header class="top">
-  <div class="wrap">
-    <a class="logo" href="#top"><b>셀레<i>디</i></b><small>중국 구매 진단</small></a>
-    <nav class="menu" aria-label="메인 메뉴">
-      <a href="#diagnosis">진단하기</a>
-      <a href="#methods">구매 방법 3가지</a>
-      <a href="#process">진행 과정</a>
-      <a href="#faq">자주 묻는 질문</a>
-    </nav>
-    <a class="btn btn-grad btn-sm" href="#diagnosis">무료 진단 시작</a>
-  </div>
+<header class="top gut">
+  <a class="logo" href="#top">셀레디<span>Sell + Ready</span></a>
+  <a class="hbtn" href="#why">왜 셀레디?</a>
 </header>
 
 <main id="top">
-<section class="hero">
-  <div class="wrap">
-    <div>
-      <span class="kicker"><i></i>1688 중국 구매, 처음이라면</span>
-      <h1>중국 구매,<br>어디서부터 해야 할지<br><em>막막하다면</em></h1>
-      <p class="sub">질문 5개에 답하면 지금 내 상황에 맞는 구매 방법과 바로 할 일을 알려드려요. 직접 하든 맡기든, 시작은 여기서 같이 정해요.</p>
-      <div class="actions">
-        <a class="btn btn-grad" href="#diagnosis">3분 진단 시작하기 →</a>
-        <a class="btn btn-ghost" href="#methods">구매 방법 먼저 보기</a>
-      </div>
-      <div class="facts" aria-label="진단 안내">
-        <div><small>질문</small><b>5개</b></div>
-        <div><small>소요 시간</small><b>3분</b></div>
-        <div><small>비용</small><b>무료</b></div>
-      </div>
+<section class="stage">
+  <div class="mani">
+    <div class="mani-in gut">
+      <div class="tag"><i></i>1688 중국 구매, 어디서부터 할지 모를 때</div>
+      <h1 id="mh">몰라도<br>괜찮아요.</h1>
+      <p id="mp">직접 할지, 맡길지. 셀레디가 대화 몇 번으로 같이 정해 드려요.</p>
+      <div class="meter" id="meter" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b></div>
     </div>
-    <div class="preview" aria-label="진단 결과 3가지">
-      <div class="ph"><span>진단 결과는 이 중 하나예요</span><span>3 TYPES</span></div>
-      <button class="ptile" data-show="direct"><span class="ic t-direct">직</span><span><b>직접구매형</b><small>직접 고르고, 바로 결제해요</small></span></button>
-      <button class="ptile" data-show="half"><span class="ic t-half">반</span><span><b>반반형</b><small>결제는 직접, 배송과 검수는 맡겨요</small></span></button>
-      <button class="ptile" data-show="manager"><span class="ic t-manager">매</span><span><b>매니저 지원형</b><small>상품 찾기부터 입고까지 함께해요</small></span></button>
+  </div>
+  <div class="chat gut" id="chat">
+    <div class="chat-head">
+      <span class="ava">셀</span>
+      <div><b>셀레디</b><small><i></i>지금 바로 답해요</small></div>
+      <button type="button" class="restart" id="restart">↺ 처음부터</button>
     </div>
+    <div class="log" id="log" aria-live="polite"></div>
   </div>
 </section>
 
-<section class="sec mist" id="diagnosis">
+<section class="why gut" id="why">
   <div class="wrap">
-    <div class="eyebrow">Diagnosis</div>
-    <h2 class="h">나에게 맞는 구매 방법 진단</h2>
-    <p class="lead">정답은 없어요. 지금 상황에 가장 가까운 답을 골라 주세요. 결과는 언제든 상담에서 바꿀 수 있어요.</p>
-    <div class="dx">
-      <aside class="dx-side" aria-label="진단 단계">
-        <h3>진단 단계</h3>
-        <ol class="steps" id="steps"></ol>
-      </aside>
-      <div class="dx-card" id="card" aria-live="polite"></div>
+    <div class="lab">왜 셀레디와 함께해야 할까요</div>
+    <h2>중국 구매가 어려운 건<br>방법이 하나뿐이라서예요.</h2>
+    <div class="rs">
+      <div class="r"><h3>정답을<br><em>강요하지 않아요.</em></h3><p>"직접 해야 이득", "맡겨야 편해" 같은 말 대신, <b>지금 내 상황</b>에서 출발해요. 경험, 사업자, 규모, 소통 가능 여부에 맞춰 시작점을 같이 정해요.</p></div>
+      <div class="r"><h3>막혀도<br><em>끊기지 않아요.</em></h3><p>직접 하다 막히면 <b>그 단계부터 셀레디 매니저가 이어받아요.</b> 익숙해지면 다시 직접 하면 돼요. 도중에 다른 업체를 찾아 처음부터 다시 설명할 일이 없어요.</p></div>
+      <div class="r"><h3>결제부터 배송까지<br><em>한 곳에서.</em></h3><p>결제는 <b>월드퍼스트</b>, 구매·검수·배송은 <b>중달이닷컴</b>. 따로 알아보고 따로 가입할 필요 없이 셀레디 하나로 이어져요.</p></div>
+      <div class="r"><h3>첫 질문부터<br><em>사람이 답해요.</em></h3><p>위에서 나눈 대화와 시작 플랜이 <b>그대로 상담으로 넘어가요.</b> 같은 얘기를 두 번 할 필요가 없어요.</p></div>
     </div>
   </div>
 </section>
 
-<section class="sec" id="methods">
+<section class="band gut" id="handoff">
   <div class="wrap">
-    <div class="eyebrow">3 Ways to buy</div>
-    <h2 class="h">구매 방법은 3가지예요</h2>
-    <p class="lead">어떤 방법이 더 좋은 게 아니라, 내가 직접 할 일과 맡길 일이 다를 뿐이에요. 상황이 바뀌면 방법도 바꿀 수 있어요.</p>
-    <div class="tbl-wrap">
-      <table class="m">
-        <thead><tr>
-          <th>단계</th>
-          <th>직접구매형<small>익숙하고, 내 속도대로 하고 싶은 분</small></th>
-          <th>반반형<small>결제는 직접, 물류는 덜고 싶은 분</small></th>
-          <th>매니저 지원형<small>처음이거나 시간이 부족한 분</small></th>
-        </tr></thead>
-        <tbody>
-          <tr><th>상품 찾기</th>
-            <td><span class="who me">내가 해요</span></td>
-            <td><span class="who me">내가 해요</span></td>
-            <td><span class="who us">매니저</span><p>원하는 상품을 알려 주시면 단가를 조사해 드려요</p></td></tr>
-          <tr><th>판매자 소통</th>
-            <td><span class="who me">내가 해요</span></td>
-            <td><span class="who me">내가 해요</span></td>
-            <td><span class="who us">매니저</span><p>옵션·수량·납기 확인을 대신해요</p></td></tr>
-          <tr><th>결제</th>
-            <td><span class="who me">내가 해요</span><p>월드퍼스트로 원화 충전 후 1688에서 바로 결제</p></td>
-            <td><span class="who me">내가 해요</span><p>월드퍼스트로 원화 충전 후 1688에서 바로 결제</p></td>
-            <td><span class="who us">매니저</span><p>견적 확인 후 맡겨 주시면 돼요</p></td></tr>
-          <tr><th>검수·배송</th>
-            <td><span class="who me">선택</span><p>필요하면 배송대행만 따로 맡길 수 있어요</p></td>
-            <td><span class="who us">맡겨요</span><p>현지 창고에서 검수·포장 후 국내로 보내요</p></td>
-            <td><span class="who us">맡겨요</span><p>진행 상황을 단계별로 알려드려요</p></td></tr>
-          <tr><th>이런 분께</th>
-            <td><p style="margin:0">1688에서 상품을 자주 직접 고르고, 원할 때 바로 주문하고 싶은 분</p></td>
-            <td><p style="margin:0">주문은 익숙한데 검수·포장·통관까지 챙기기는 부담스러운 분</p></td>
-            <td><p style="margin:0">중국 구매가 처음이거나, 판매자 소통·검수를 맡기고 싶은 분</p></td></tr>
-        </tbody>
-      </table>
+    <h2>내가 하는 만큼,<br>셀레디가 나머지를.</h2>
+    <p class="lead">어디까지 직접 할지는 정하기 나름이에요. 막대를 움직여 보세요. 어느 지점이든 셀레디 안에서 이어져요.</p>
+    <div class="slider">
+      <input type="range" id="rng" min="0" max="4" step="1" value="1" aria-label="셀레디에 맡기는 정도">
+      <div class="ends"><span>내가 거의 다</span><span>셀레디가 거의 다</span></div>
     </div>
-    <div class="legend"><span><span class="who me">내가 해요</span> 고객님이 직접</span><span><span class="who us">매니저</span> 담당 매니저가 지원</span></div>
+    <div class="lanes" id="lanes"></div>
+    <p class="cap" id="cap"></p>
   </div>
 </section>
 
-<section class="sec mist" id="process">
+<section class="pt gut" id="partners">
   <div class="wrap">
-    <div class="eyebrow">How it works</div>
-    <h2 class="h">진단부터 첫 주문까지</h2>
-    <ol class="flow">
-      <li><b>3분 진단</b><p>질문 5개로 지금 상황에 맞는 구매 방법을 확인해요.</p></li>
-      <li><b>결과 확인</b><p>내가 할 일과 맡길 일, 바로 할 일 3가지를 받아요.</p></li>
-      <li><b>채널톡 상담 신청</b><p>진단 결과를 그대로 남기면 다시 설명할 필요가 없어요.</p></li>
-      <li><b>첫 주문 시작</b><p>가이드를 따라 직접 시작하거나, 담당 매니저와 함께 시작해요.</p></li>
-    </ol>
-  </div>
-</section>
-
-<section class="sec" id="partners">
-  <div class="wrap">
-    <div class="eyebrow">Partners</div>
-    <h2 class="h">누가 함께하나요</h2>
-    <p class="lead">셀레디는 진단하고 연결하는 곳이에요. 결제와 수입 지원은 각 분야의 파트너가 맡아요.</p>
-    <div class="partners">
-      <div class="pc main"><small>PLATFORM</small><b>셀레디</b><p>고객 상황을 진단하고 맞는 구매 방법과 서비스로 연결해요.</p></div>
-      <div class="pc"><small>PAYMENT PARTNER</small><b>월드퍼스트</b><p>1688 직접 결제를 위한 해외 결제 파트너예요.</p></div>
-      <div class="pc"><small>IMPORT PARTNER</small><b>중달이닷컴</b><p>구매대행·배송대행·단가조사 등 중국 수입 전 과정을 지원해요.</p></div>
+    <h2>셀레디 뒤에는<br>이미 검증된 파트너가 있어요.</h2>
+    <div class="pgrid">
+      <div class="pc me"><small>진단·연결</small><b>셀레디</b><p>내 상황을 듣고, 맞는 방법과 서비스로 이어 줘요. 진행 중에 방법을 바꿔도 여기서 다 이어져요.</p></div>
+      <div class="pc"><small>직접 결제 파트너</small><b>월드퍼스트</b><p>원화로 충전해 1688에서 직접 결제할 수 있게 해 주는 해외 결제 파트너예요.</p></div>
+      <div class="pc"><small>수입 지원 파트너</small><b>중달이닷컴</b><p>단가조사, 구매대행, 현지 검수, 배송대행까지 중국 수입 전 과정을 맡아요.</p></div>
     </div>
   </div>
 </section>
 
-<section class="sec mist" id="faq">
-  <div class="wrap">
-    <div class="eyebrow">FAQ</div>
-    <h2 class="h">자주 묻는 질문</h2>
-    <div class="faq">
-      <details open><summary>진단은 무료인가요?</summary><p>네, 진단과 상담 신청 모두 무료예요.</p></details>
-      <details><summary>결과와 다른 방법을 선택해도 되나요?</summary><p>네. 진단 결과는 추천이에요. 상담하면서 다른 방법으로 바꿀 수 있어요.</p></details>
-      <details><summary>처음엔 맡기고, 익숙해지면 직접 해도 되나요?</summary><p>네. 매니저 지원형으로 시작해 익숙해지면 반반형이나 직접구매형으로 옮길 수 있어요.</p></details>
-      <details><summary>사업자등록이 없어도 시작할 수 있나요?</summary><p>매니저 지원형으로 시작할 수 있어요. 직접 결제는 가입할 때 사업자 정보 확인이 필요해서, 준비되면 따로 안내해 드려요.</p></details>
-      <details><summary>상담을 신청하면 언제 연락이 오나요?</summary><p>정식 오픈 전에는 신청하신 순서대로 오픈 시점에 먼저 연락드려요.</p></details>
-    </div>
-  </div>
-</section>
-
-<section class="closing">
-  <div class="wrap">
-    <h2>내게 맞는 방법부터 찾고 시작하세요</h2>
-    <p>질문 5개, 3분이면 충분해요.</p>
-    <a class="btn btn-grad" href="#diagnosis">무료 진단 시작하기 →</a>
-  </div>
+<section class="closing gut">
+  <h2>몰라도<br>괜찮아요.</h2>
+  <p>첫 질문부터 같이 해요. 버튼만 누르면 돼요.</p>
+  <a class="btn" href="#top" id="again">셀레디랑 대화 시작하기 →</a>
 </section>
 </main>
 
-<footer>
-  <div class="wrap">
-    <span><b>셀레디</b> · 중국 구매 진단·연결 플랫폼 · 운영 빅벡터</span>
-    <span>파트너 월드퍼스트 · 중달이닷컴 · 이 페이지는 내부 검토용 초안이에요</span>
-  </div>
+<footer class="gut">
+  <span><b>셀레디</b> · 운영 빅벡터 · 파트너 월드퍼스트, 중달이닷컴</span>
+  <span>개인 기획 초안 · 2026-11-11 · 상담 연결은 준비 중</span>
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
 
 <script>
 (function(){
-  var GUIDE_URL = "https://docs.channel.io/sinkyu/ko";
-
-  var Q = [
-    {k:"exp", short:"구매 경험", q:"1688에서 상품을 직접 찾아본 적이 있나요?", hint:"사이트에서 검색하고 옵션을 비교해 본 경험을 떠올려 주세요.",
-     o:[{v:"often",t:"자주 직접 골라요",d:"검색, 옵션 비교, 판매자 선택까지 해 봤어요",s:2,why:"1688에서 상품을 자주 직접 고르세요"},
-        {v:"some",t:"몇 번 둘러본 정도예요",d:"구경은 해 봤지만 주문까지는 익숙하지 않아요",s:1,why:"1688을 몇 번 둘러보셨어요"},
-        {v:"none",t:"처음이에요",d:"어디서 어떻게 찾는지부터 궁금해요",s:-2,why:"1688이 처음이세요"}]},
-    {k:"biz", short:"사업자 여부", q:"사업자등록증이 있나요?", hint:"직접 결제 계정을 열 때 사업자 정보를 확인해요.",
-     o:[{v:"yes",t:"있어요",d:"개인사업자 또는 법인",s:1,why:"사업자 정보가 있으세요"},
-        {v:"soon",t:"준비 중이에요",d:"곧 등록할 예정이에요",s:0,why:"사업자 등록을 준비 중이세요"},
-        {v:"no",t:"없어요",d:"",s:0,why:"사업자 정보가 아직 없으세요"}]},
-    {k:"vol", short:"구매 규모", q:"한 달에 어느 정도 구매할 계획인가요?", hint:"대략적인 금액이면 충분해요.",
-     o:[{v:"s",t:"100만 원 미만",d:"",s:0,why:"월 100만 원 미만으로 구매하세요"},
-        {v:"m",t:"100만~500만 원",d:"",s:1,why:"월 100만~500만 원 규모로 구매하세요"},
-        {v:"l",t:"500만 원 이상",d:"",s:1,why:"월 500만 원 이상 꾸준히 구매하세요"},
-        {v:"x",t:"아직 모르겠어요",d:"",s:-1,why:"구매 규모를 아직 정하지 않으셨어요"}]},
-    {k:"talk", short:"판매자 소통", q:"판매자와 옵션·수량·납기를 직접 확인할 수 있나요?", hint:"중국어 채팅이나 번역기 사용을 포함해요.",
-     o:[{v:"ok",t:"직접 할 수 있어요",d:"",s:2,why:"판매자와 직접 소통할 수 있으세요"},
-        {v:"tr",t:"번역기로 어느 정도는 돼요",d:"",s:1,why:"번역기로 판매자와 소통할 수 있으세요"},
-        {v:"hard",t:"어려워요",d:"",s:-2,why:"판매자 소통이 어렵다고 하셨어요"}]},
-    {k:"want", short:"원하는 방식", q:"어떤 방식이 가장 편할 것 같나요?", hint:"지금 마음에 가장 가까운 걸 골라 주세요.",
-     o:[{v:"self",t:"원할 때 바로 주문하고 결제하고 싶어요",d:"내 속도대로 직접 진행",s:3,why:"원할 때 바로 주문하고 싶으세요"},
-        {v:"half",t:"결제는 직접, 배송·검수는 맡기고 싶어요",d:"번거로운 물류만 덜기",s:0,why:"배송·검수는 맡기고 싶으세요"},
-        {v:"all",t:"상품 찾기부터 입고까지 맡기고 싶어요",d:"처음부터 끝까지 도움받기",s:-3,why:"처음부터 끝까지 도움받고 싶으세요"}]}
+  var Q=[
+    {k:"exp",q:"지금 어떤 상황이세요?",o:[
+      {v:"often",t:"1688에서 고르는 건 익숙해요",a:"고르는 건 이미 자신 있으시네요. 그럼 나머지만 정하면 돼요."},
+      {v:"some",t:"구경은 해봤는데 주문은 막막해요",a:"구경까지 하셨으면 반은 오신 거예요. 주문부터는 같이 해요."},
+      {v:"none",t:"중국 구매 자체가 처음이에요",a:"괜찮아요. 처음인 분이 제일 많아요. 상품 찾는 것부터 같이 할 수 있어요."}]},
+    {k:"biz",q:"사업자등록은 되어 있으세요?",o:[
+      {v:"yes",t:"네, 있어요",a:"좋아요. 그럼 월드퍼스트로 1688에서 직접 결제하는 길도 열려 있어요."},
+      {v:"soon",t:"준비 중이에요",a:"등록 전까지는 셀레디가 구매를 대신하고, 등록되면 직접 결제로 바꾸면 돼요."},
+      {v:"no",t:"아직 없어요",a:"사업자 없이도 시작할 수 있어요. 구매는 셀레디 매니저가 진행해요."}]},
+    {k:"vol",q:"한 달에 어느 정도 살 생각이세요?",o:[
+      {v:"s",t:"100만 원 미만",a:"그럼 샘플 주문부터 가볍게 해 봐요."},
+      {v:"m",t:"100만~500만 원",a:"꾸준히 사시는 규모네요. 반복 주문이 편해지게 맞춰 볼게요."},
+      {v:"l",t:"500만 원 이상",a:"규모가 크시네요. 주문이 많을수록 진행 상황이 한눈에 보여야 해요."},
+      {v:"x",t:"아직 모르겠어요",a:"몰라도 돼요. 샘플 몇 개로 시작해서 정해도 늦지 않아요."}]},
+    {k:"talk",q:"판매자랑 옵션·수량·납기 확인은 어떠세요?",o:[
+      {v:"ok",t:"직접 할 수 있어요",a:"직접 하실 수 있으면 그게 제일 빨라요."},
+      {v:"tr",t:"번역기로 어느 정도는 돼요",a:"그 정도면 충분해요. 막히는 부분만 셀레디가 도와드릴게요."},
+      {v:"hard",t:"그건 좀 어려워요",a:"그건 셀레디 매니저가 대신 물어볼게요. 중국어 몰라도 돼요."}]},
+    {k:"want",q:"마지막이에요! 제일 바라는 건 뭐예요?",o:[
+      {v:"self",t:"원할 때 바로 주문하고 싶어요",a:"내 속도대로 바로 주문하는 쪽으로 짤게요."},
+      {v:"half",t:"검수·배송은 덜고 싶어요",a:"번거로운 검수·배송은 셀레디가 챙기는 쪽으로 짤게요."},
+      {v:"all",t:"처음부터 끝까지 맡기고 싶어요",a:"처음부터 끝까지 셀레디가 함께하는 쪽으로 짤게요."}]}
   ];
-
-  var R = {
-    direct:{name:"직접구매형",ic:"직",tag:"직접 고르고, 바로 결제하는 방식이 잘 맞아요.",
-      me:["상품 찾기·판매자 소통","월드퍼스트로 1688 직접 결제"],us:["가입·결제 가이드","필요하면 배송대행"],
-      todo:["월드퍼스트에 가입하고 1688 계정을 연결해요","원화로 충전한 뒤 1688에서 바로 결제해요","배송·검수가 필요하면 배송대행만 따로 맡겨요"],
-      sub:{t:"가입 가이드 보기",href:GUIDE_URL}},
-    half:{name:"반반형",ic:"반",tag:"결제는 직접 하고, 배송과 검수는 맡기는 방식이 잘 맞아요.",
-      me:["상품 찾기·판매자 소통","월드퍼스트로 1688 직접 결제"],us:["현지 창고 입고·검수","포장·국내 배송"],
-      todo:["월드퍼스트로 1688 직접 결제를 준비해요","주문한 상품을 현지 창고 주소로 보내요","검수·포장·국내 배송은 매니저가 챙겨요"],
-      sub:{t:"직접 결제 가이드 보기",href:GUIDE_URL}},
-    manager:{name:"매니저 지원형",ic:"매",tag:"상품 찾기부터 입고까지 매니저와 함께하는 방식이 잘 맞아요.",
-      me:["원하는 상품·수량 알려 주기","견적 확인"],us:["단가 조사·판매자 소통","구매·검수·배송"],
-      todo:["원하는 상품과 수량을 상담에서 알려 주세요","매니저가 단가를 조사하고 판매자와 조율해요","구매부터 입고까지 진행 상황을 단계별로 받아요"],
-      sub:null}
+  var M={
+    start:["몰라도<br>괜찮아요.","직접 할지, 맡길지. 셀레디가 대화 몇 번으로 같이 정해 드려요."],
+    exp_often:["잘하는 건<br>그대로.","익숙한 건 직접 하고, 번거로운 것만 덜면 돼요."],
+    exp_some:["반은<br>오셨어요.","막막한 주문부터는 셀레디가 옆에서 같이 해요."],
+    exp_none:["처음이어도<br>괜찮아요.","상품 찾기부터 같이 해요. 처음 오는 분이 제일 많아요."],
+    biz_yes:["직접 결제도,<br>맡기기도.","사업자가 있으면 고를 수 있는 길이 하나 더 열려요."],
+    biz_no:["사업자 없어도<br>시작해요.","준비되는 동안엔 셀레디가 구매를 맡아요."],
+    vol_small:["작게 시작해도<br>돼요.","샘플 몇 개로 감을 잡고, 그다음에 늘려요."],
+    vol_big:["많을수록<br>한눈에.","주문이 늘어도 어디까지 왔는지 바로 보이게 해요."],
+    talk_hard:["말이 안 통해도<br>괜찮아요.","판매자와의 대화는 셀레디 매니저가 대신해요."],
+    talk_ok:["막히는 곳만<br>도와요.","할 수 있는 건 직접, 막히면 그 자리에서 이어받아요."],
+    done:["결제부터 배송까지,<br>셀레디 하나로.","내 상황에 맞춘 시작 플랜이 나왔어요. 그대로 상담으로 이어져요."]
   };
-
-  var ans = {}, cur = 0, card = document.getElementById("card"), stepsEl = document.getElementById("steps");
-
+  var log=document.getElementById("log"),mh=document.getElementById("mh"),mp=document.getElementById("mp"),meter=document.getElementById("meter").children;
+  var ans={},step=0,busy=false,timers=[];
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
-  function pick(qi){var a=ans[Q[qi].k];if(!a)return null;for(var i=0;i<Q[qi].o.length;i++)if(Q[qi].o[i].v===a)return Q[qi].o[i];return null}
-
-  function decide(){
-    var total=0; for(var i=0;i<Q.length;i++){var p=pick(i); if(p) total+=p.s;}
-    if(ans.biz==="no") return "manager";
-    if(ans.want==="all") return "manager";
-    if(ans.want==="half") return total<=-1 ? "manager" : "half";
-    if(total>=5) return "direct";
-    if(total>=1) return "half";
-    return "manager";
+  function later(fn,ms){timers.push(setTimeout(fn,ms))}
+  function setM(key){
+    var m=M[key]; mh.classList.add("swap"); mp.classList.add("swap");
+    later(function(){mh.innerHTML=m[0]; mp.textContent=m[1]; mh.classList.remove("swap"); mp.classList.remove("swap");},200);
+    for(var i=0;i<meter.length;i++) meter[i].classList.toggle("on",i<step);
   }
-
-  function renderSteps(done){
-    var h="";
-    for(var i=0;i<Q.length;i++){
-      var p=pick(i), cls = done ? "done" : (i<cur ? "done" : (i===cur ? "cur" : ""));
-      h+='<li class="'+cls+'"><span class="n">'+(i+1)+'</span><span>'+esc(Q[i].short)+(p?'<span class="a">'+esc(p.t)+'</span>':'')+'</span></li>';
-    }
-    h+='<li class="'+(done?"cur":"")+'"><span class="n">✓</span><span>진단 결과</span></li>';
-    stepsEl.innerHTML=h;
+  function add(html,cls){var d=document.createElement("div");d.className=cls;d.innerHTML=html;log.appendChild(d);reveal(d);return d}
+  var live=false;
+  function reveal(el){
+    if(!live) return;
+    var r=el.getBoundingClientRect();
+    if(r.bottom>window.innerHeight-16) window.scrollBy({top:r.bottom-window.innerHeight+120,behavior:"smooth"});
   }
-
-  function renderQ(){
-    var q=Q[cur], pct=Math.round(cur/Q.length*100);
-    var h='<div class="bar"><i style="width:'+pct+'%"></i></div>'+
-      '<div class="qmeta"><span>Q'+(cur+1)+' / '+Q.length+'</span><button type="button" id="back"'+(cur===0?' disabled':'')+'>← 이전 질문</button></div>'+
-      '<h3 class="q">'+esc(q.q)+'</h3><p class="hint">'+esc(q.hint)+'</p><div class="opts" role="radiogroup" aria-label="'+esc(q.q)+'">';
+  function typing(cb,ms){var t=add("<i></i><i></i><i></i>","typing");later(function(){t.remove();cb()},ms||650)}
+  function ask(){
+    var q=Q[step];
+    add(esc(q.q),"msg bot q");
+    var c=document.createElement("div");c.className="chips";
     q.o.forEach(function(o){
-      var sel=ans[q.k]===o.v;
-      h+='<button type="button" class="opt'+(sel?' sel':'')+'" role="radio" aria-checked="'+sel+'" data-v="'+o.v+'"><span class="r"></span><span><b>'+esc(o.t)+'</b>'+(o.d?'<small>'+esc(o.d)+'</small>':'')+'</span></button>';
+      var b=document.createElement("button");b.type="button";b.className="chip";b.textContent=o.t;
+      b.addEventListener("click",function(){answer(q,o,c)});
+      c.appendChild(b);
     });
-    h+='</div>';
-    card.innerHTML=h;
-    renderSteps(false);
-    card.querySelectorAll(".opt").forEach(function(b){
-      b.addEventListener("click",function(){
-        ans[q.k]=b.getAttribute("data-v");
-        card.querySelectorAll(".opt").forEach(function(x){x.classList.toggle("sel",x===b);x.setAttribute("aria-checked",x===b)});
-        setTimeout(function(){ if(cur<Q.length-1){cur++;renderQ();} else {renderR(decide(),true);} },220);
+    log.appendChild(c); reveal(c);
+  }
+  function answer(q,o,c){
+    if(busy) return; busy=true; live=true;
+    c.remove(); ans[q.k]=o.v; add(esc(o.t),"msg me");
+    step++;
+    var key = q.k==="exp" ? "exp_"+o.v
+      : q.k==="biz" ? (o.v==="yes"?"biz_yes":"biz_no")
+      : q.k==="vol" ? ((o.v==="s"||o.v==="x")?"vol_small":"vol_big")
+      : q.k==="talk" ? (o.v==="hard"?"talk_hard":"talk_ok")
+      : "done";
+    setM(key);
+    typing(function(){
+      add(esc(o.a),"msg bot");
+      if(step<Q.length){ later(function(){typing(function(){ask();busy=false},500)},250); }
+      else { later(function(){typing(function(){add("다 됐어요. 이렇게 시작하면 돼요.","msg bot");plan();busy=false},700)},250); }
+    });
+  }
+  function plan(){
+    var a=ans, rows=[];
+    var findUs = a.exp==="none"||a.want==="all";
+    rows.push({t:"상품 찾기",us:findUs,d:findUs?"원하는 상품을 말씀하시면 셀레디가 단가와 공급처를 찾아 드려요.":"1688에서 직접 골라요. 링크만 있으면 다음 단계로 바로 넘어가요."});
+    var talkUs = a.talk==="hard"||a.want==="all";
+    rows.push({t:"판매자 소통",us:talkUs,d:talkUs?"옵션·수량·납기 확인은 셀레디 매니저가 대신해요.":(a.talk==="tr"?"번역기로 직접 확인하고, 막히는 질문만 셀레디가 이어받아요.":"직접 확인해요. 가장 빠른 방법이에요.")});
+    var payUs = a.biz!=="yes"||a.want==="all";
+    rows.push({t:"결제·구매",us:payUs,d:payUs?(a.biz==="soon"?"지금은 셀레디가 구매를 진행하고, 사업자 등록 후엔 월드퍼스트 직접 결제로 바꿀 수 있어요.":"견적을 확인하면 셀레디가 구매까지 진행해요."):"월드퍼스트에 원화로 충전해서 1688에서 바로 결제해요."});
+    var shipMe = a.want==="self"&&a.exp==="often";
+    rows.push({t:"검수·배송",us:!shipMe,d:shipMe?"필요할 때만 셀레디 배송대행을 붙여요.":"현지 창고에서 검수·포장하고 국내까지 보내요. 진행 상황은 단계마다 알려 드려요."});
+    var first = (a.vol==="s"||a.vol==="x")?"샘플 주문으로 가볍게 시작해요.":"첫 주문부터 바로 시작해요.";
+    var nUs=rows.filter(function(r){return r.us}).length, nMe=rows.length-nUs;
+    var h='<h3>나의 시작 플랜</h3><div class="tally"><span>내가 '+nMe+'단계</span><span class="us">셀레디가 '+nUs+'단계</span></div><ol class="route">';
+    rows.forEach(function(r){h+='<li class="'+(r.us?"us":"me")+'"><span class="dot"></span><div><div class="st"><b>'+r.t+'</b><span class="who">'+(r.us?"셀레디":"내가")+'</span></div><p>'+esc(r.d)+'</p></div></li>'});
+    h+='</ol><p class="foot">'+first+' 직접 하는 범위는 언제든 늘리고 줄일 수 있어요. 막히면 그 단계부터 셀레디가 이어받아요.</p>'+
+       '<div class="cta"><button type="button" class="btn main" id="go">이 플랜으로 상담 이어가기 →</button><a class="btn sub" href="#why">왜 셀레디인지 보기</a></div>';
+    var p=add(h,"plan");
+    p.querySelector("#go").addEventListener("click",function(){toast("상담 연결은 준비 중이에요. 오픈하면 이 대화가 그대로 넘어가요.")});
+    later(function(){
+      add("더 궁금한 게 있으면 눌러 보세요.","msg bot");
+      var c=document.createElement("div");c.className="chips";
+      [["뭐가 달라요?","방법을 하나로 정해 놓지 않는 거예요. 직접 하다 막히면 그 단계부터 셀레디가 이어받고, 익숙해지면 다시 직접 하면 돼요. 업체를 옮겨 다닐 필요가 없어요."],
+       ["비용은 어떻게 돼요?","어디까지 맡기느냐에 따라 달라져요. 상담에서 내 주문 기준으로 견적을 먼저 보여 드리고, 확인하신 다음에 진행해요."],
+       ["나중에 바꿀 수 있어요?","네, 언제든요. 처음엔 맡기다가 결제만 직접 하거나, 반대로 직접 하다가 검수·배송을 맡길 수도 있어요."]
+      ].forEach(function(x){
+        var b=document.createElement("button");b.type="button";b.className="chip ghost";b.textContent=x[0];
+        b.addEventListener("click",function(){ if(busy)return; busy=true; b.remove(); add(esc(x[0]),"msg me"); typing(function(){add(esc(x[1]),"msg bot");busy=false},600); if(!c.children.length)c.remove(); });
+        c.appendChild(b);
       });
-    });
-    var back=document.getElementById("back");
-    if(back) back.addEventListener("click",function(){ if(cur>0){cur--;renderQ();} });
+      log.appendChild(c);
+    },500);
   }
-
-  function renderR(type,fromAnswers){
-    var r=R[type];
-    var why="";
-    if(fromAnswers){
-      for(var i=0;i<Q.length;i++){var p=pick(i); if(p) why+='<span><b>'+esc(Q[i].short)+'</b> · '+esc(p.why)+'</span>';}
-    }
-    var h='<div class="bar"><i style="width:100%"></i></div><div class="res" style="margin-top:22px">'+
-      '<div class="res-top"><span class="ic t-'+type+'">'+r.ic+'</span><div><small>'+(fromAnswers?'진단 결과':'구매 방법 미리보기')+'</small><h3>'+r.name+'</h3></div></div>'+
-      '<p class="tagline">'+esc(r.tag)+'</p>'+
-      (why?'<div class="why">'+why+'</div>':'')+
-      '<div class="split"><div class="me"><h4>내가 할 일</h4><ul>'+r.me.map(function(x){return '<li>'+esc(x)+'</li>'}).join("")+'</ul></div>'+
-      '<div class="us"><h4>맡길 수 있는 일</h4><ul>'+r.us.map(function(x){return '<li>'+esc(x)+'</li>'}).join("")+'</ul></div></div>'+
-      '<div class="todo"><h4>지금 바로 할 일</h4><ol>'+r.todo.map(function(x){return '<li><span>'+esc(x)+'</span></li>'}).join("")+'</ol></div>'+
-      '<div class="res-cta"><button type="button" class="btn btn-grad" id="consult">이 결과로 채널톡 상담 신청 →</button>'+
-      (r.sub?'<a class="btn btn-light" href="'+r.sub.href+'" target="_blank" rel="noopener">'+esc(r.sub.t)+' ↗</a>':'')+'</div>'+
-      '<p class="note" id="cnote" hidden>초안이라 아직 채널톡과 연결되지 않았어요. 오픈 후에는 이 버튼을 누르면 진단 결과가 담긴 상담 창이 바로 열려요.</p>'+
-      '<div class="others"><span>다른 방법도 궁금하다면</span>'+
-      Object.keys(R).filter(function(k){return k!==type}).map(function(k){return '<button type="button" data-alt="'+k+'">'+R[k].name+' 보기</button>'}).join("")+
-      '<button type="button" id="restart" style="margin-left:auto;color:var(--gray)">↺ 처음부터 다시</button></div></div>';
-    card.innerHTML=h;
-    renderSteps(true);
-    document.getElementById("consult").addEventListener("click",function(){
-      document.getElementById("cnote").hidden=false; toast("초안: 채널톡 상담 연결 예정이에요");
-    });
-    card.querySelectorAll("[data-alt]").forEach(function(b){b.addEventListener("click",function(){renderR(b.getAttribute("data-alt"),false)})});
-    document.getElementById("restart").addEventListener("click",function(){ans={};cur=0;renderQ();});
+  function start(){
+    timers.forEach(clearTimeout); timers=[]; busy=false; live=false; ans={}; step=0; log.innerHTML="";
+    mh.innerHTML=M.start[0]; mp.textContent=M.start[1];
+    for(var i=0;i<meter.length;i++) meter[i].classList.remove("on");
+    var d1=document.createElement("div");d1.className="msg bot";d1.textContent="안녕하세요, 셀레디예요.";log.appendChild(d1);
+    var d2=document.createElement("div");d2.className="msg bot";d2.textContent="1688 중국 구매, 어떻게 시작할지 같이 정해 볼게요. 버튼만 누르면 돼요.";log.appendChild(d2);
+    ask();
   }
+  document.getElementById("restart").addEventListener("click",function(){start();document.getElementById("chat").scrollIntoView({behavior:"smooth"})});
+  document.getElementById("again").addEventListener("click",function(e){e.preventDefault();start();window.scrollTo({top:0,behavior:"smooth"})});
 
-  var tEl=document.getElementById("toast"), tT;
-  function toast(m){tEl.textContent=m;tEl.classList.add("on");clearTimeout(tT);tT=setTimeout(function(){tEl.classList.remove("on")},2400)}
+  /* handoff slider */
+  var L=[["01","상품 찾기"],["02","판매자 소통"],["03","결제·구매"],["04","검수·배송"]];
+  var S=[[0,0,0,0],[0,0,0,1],[0,1,0,1],[0,1,1,1],[1,1,1,1]];
+  var C=["다 직접 해요. 필요할 때만 셀레디를 불러요.","결제까지 직접, 검수·배송은 셀레디가 챙겨요.","판매자 소통이 막히면 셀레디가 대신 물어봐요.","상품만 골라 주시면 나머지는 셀레디가 해요.","원하는 것만 말씀하세요. 처음부터 끝까지 셀레디가 해요."];
+  var rng=document.getElementById("rng"),lanes=document.getElementById("lanes"),cap=document.getElementById("cap");
+  function drawLanes(){
+    var s=S[+rng.value];
+    lanes.innerHTML=L.map(function(l,i){return '<div class="lane'+(s[i]?" us":"")+'"><small>'+l[0]+'</small><b>'+l[1]+'</b><span>'+(s[i]?"셀레디":"내가")+'</span></div>'}).join("");
+    cap.textContent=C[+rng.value];
+  }
+  rng.addEventListener("input",drawLanes); drawLanes();
 
-  document.querySelectorAll("[data-show]").forEach(function(b){
-    b.addEventListener("click",function(){
-      renderR(b.getAttribute("data-show"),false);
-      document.getElementById("diagnosis").scrollIntoView({behavior:"smooth"});
-    });
-  });
-
-  renderQ();
+  var tEl=document.getElementById("toast"),tT;
+  function toast(m){tEl.textContent=m;tEl.classList.add("on");clearTimeout(tT);tT=setTimeout(function(){tEl.classList.remove("on")},2800)}
+  start();
 })();
 </script>
 </body>
